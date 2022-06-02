@@ -19,7 +19,7 @@ class SegundaTela extends StatelessWidget {
             margin: EdgeInsets.all(16),
             child: TextButton(
               style: TextButton.styleFrom(
-                backgroundColor: Colors.grey
+                backgroundColor: Color.fromARGB(92, 158, 158, 158)
               ),
               onPressed: () {
                 Navigator.push(
@@ -28,7 +28,7 @@ class SegundaTela extends StatelessWidget {
               );
               }, 
               child: Text('Proximo',
-              style: TextStyle(color: Colors.orange,
+              style: TextStyle(color: Color.fromARGB(167, 255, 153, 0),
               fontWeight: FontWeight.bold,
               fontSize: 16),)),
           )
