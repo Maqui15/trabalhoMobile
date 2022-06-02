@@ -45,33 +45,60 @@ class Heros {
     int dano = 0;
     for (var i = 0; i <= str; i += 3) {
       dano += 1;
+      hp += 7;
     }
-    if (skill == 1) {}
-    if (skill == 2) {}
-    if (skill == 3) {}
+    if (skill == 1) {
+      dano += 16;
+    }
+    if (skill == 2) {
+      dano += 21;
+      mana -= 6;
+    }
+    if (skill == 3) {
+      dano += 30;
+      mana -= 20;
+    }
 
     return dano;
   }
 
   int skillsMago(int skill) {
     int dano = 0;
-    for (var i = 0; i <= intel; i += 1) {
+    for (var i = 0; i <= intel; i += 2) {
       dano += 1;
     }
-    if (skill == 1) {}
-    if (skill == 2) {}
-    if (skill == 3) {}
+    if (skill == 1) {
+      dano += 10;
+      mana += 5;
+    }
+    if (skill == 2) {
+      dano += 30;
+      mana -= 10;
+    }
+    if (skill == 3) {
+      dano += 45;
+      mana -= 20;
+    }
     return dano;
   }
 
   int skillsRogue(int skill) {
     int dano = 0;
-    for (var i = 0; i <= dex; i += 2) {
+    for (var i = 0; i <= dex; i += 1) {
       dano += 1;
+      hp += 5;
     }
-    if (skill == 1) {}
-    if (skill == 2) {}
-    if (skill == 3) {}
+    if (skill == 1) {
+      dano += 19;
+    }
+    if (skill == 2) {
+      dano += 23;
+      mana -= 8;
+    }
+    if (skill == 3) {
+      dano += 35;
+      mana -= 20;
+    }
     return dano;
   }
 

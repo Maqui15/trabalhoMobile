@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:jogo_mobile/Heros.dart';
-import 'package:jogo_mobile/telas/Inicial.dart';
+
 
 class EscolhaDeClasse extends StatelessWidget {
   @override
@@ -20,14 +19,14 @@ class EscolhaDeClasse extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   primary: Colors.black,
                   textStyle: const TextStyle(fontSize: 22),
-                  backgroundColor: Color.fromARGB(120, 158, 158, 158),
+                  backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                 ),
                 onPressed: () {
-                  Heros hero = new Heros();
+                  Heros hero = Heros();
                   var escolha = 'Guerreiro';
                   hero.escolhaClasse(escolha);
                 },
-                child: Text(
+                child: const Text(
                   'Guerreiro',
                   style: TextStyle(
                     color: Color.fromARGB(167, 255, 153, 0),
@@ -37,20 +36,20 @@ class EscolhaDeClasse extends StatelessWidget {
           ),
           Container(
             width: 300,
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: TextButton(
                 style: TextButton.styleFrom(
                   padding: const EdgeInsets.all(16.0),
                   primary: Colors.black,
                   textStyle: const TextStyle(fontSize: 22),
-                  backgroundColor: Color.fromARGB(120, 158, 158, 158),
+                  backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                 ),
                 onPressed: () {
-                  Heros hero = new Heros();
+                  Heros hero = Heros();
                   var escolha = 'Mago';
-                  hero.escolhaClasse(escolha);;
+                  hero.escolhaClasse(escolha);
                 },
-                child: Text(
+                child: const Text(
                   'Mago',
                   style: TextStyle(
                     color: Color.fromARGB(167, 255, 153, 0),
@@ -60,20 +59,20 @@ class EscolhaDeClasse extends StatelessWidget {
           ),
           Container(
             width: 300,
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: TextButton(
                 style: TextButton.styleFrom(
                   padding: const EdgeInsets.all(16.0),
                   primary: Colors.black,
                   textStyle: const TextStyle(fontSize: 22),
-                  backgroundColor: Color.fromARGB(120, 158, 158, 158),
+                  backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                 ),
                 onPressed: () {
-                  Heros hero = new Heros();
+                  Heros hero = Heros();
                   var escolha = 'Rogue';
                   hero.escolhaClasse(escolha);
                 },
-                child: Text(
+                child: const Text(
                   'Rogue',
                   style: TextStyle(
                     color: Color.fromARGB(167, 255, 153, 0),
