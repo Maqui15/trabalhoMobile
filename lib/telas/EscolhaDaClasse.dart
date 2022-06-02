@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jogo_mobile/Heros.dart';
-
+import 'package:jogo_mobile/telas/Batalha1.dart';
 
 class EscolhaDeClasse extends StatelessWidget {
   @override
@@ -25,6 +25,8 @@ class EscolhaDeClasse extends StatelessWidget {
                   Heros hero = Heros();
                   var escolha = 'Guerreiro';
                   hero.escolhaClasse(escolha);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Batalha1()));
                 },
                 child: const Text(
                   'Guerreiro',
@@ -48,6 +50,8 @@ class EscolhaDeClasse extends StatelessWidget {
                   Heros hero = Heros();
                   var escolha = 'Mago';
                   hero.escolhaClasse(escolha);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Batalha1()));
                 },
                 child: const Text(
                   'Mago',
@@ -71,6 +75,8 @@ class EscolhaDeClasse extends StatelessWidget {
                   Heros hero = Heros();
                   var escolha = 'Rogue';
                   hero.escolhaClasse(escolha);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Batalha1()));
                 },
                 child: const Text(
                   'Rogue',
