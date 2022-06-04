@@ -5,12 +5,23 @@ import 'package:jogo_mobile/telas/Batalha1.dart';
 class EscolhaDeClasse extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+
+    final nameController = TextEditingController();
+
+    EscolhaDeClasse();
+
+    return Scaffold(
+      body: Container(
       color: Colors.black,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          TextField(
+            controller: nameController,
+            decoration: InputDecoration(labelText: 'Nickname'),
+            //style: Style,
+          ),
           Container(
             width: 300,
             margin: EdgeInsets.all(20),
@@ -25,8 +36,9 @@ class EscolhaDeClasse extends StatelessWidget {
                   Heros hero = Heros();
                   var escolha = 'Guerreiro';
                   hero.escolhaClasse(escolha);
+                  hero.nome = nameController.text;
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Batalha1()));
+                  MaterialPageRoute(builder: (context) => Batalha1()));
                 },
                 child: const Text(
                   'Guerreiro',
@@ -88,6 +100,7 @@ class EscolhaDeClasse extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ),
+    ); 
   }
 }
