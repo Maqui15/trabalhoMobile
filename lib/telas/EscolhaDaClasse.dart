@@ -7,6 +7,7 @@ class EscolhaDeClasse extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final nameController = TextEditingController();
+    Heros hero = Heros();
 
     EscolhaDeClasse();
 
@@ -33,7 +34,6 @@ class EscolhaDeClasse extends StatelessWidget {
                   backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                 ),
                 onPressed: () {
-                  Heros hero = Heros();
                   var escolha = 'Guerreiro';
                   hero.escolhaClasse(escolha);
                   hero.nome = nameController.text;
@@ -59,7 +59,6 @@ class EscolhaDeClasse extends StatelessWidget {
                   backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                 ),
                 onPressed: () {
-                  Heros hero = Heros();
                   var escolha = 'Mago';
                   hero.escolhaClasse(escolha);
                   Navigator.push(context,
@@ -84,7 +83,6 @@ class EscolhaDeClasse extends StatelessWidget {
                   backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                 ),
                 onPressed: () {
-                  Heros hero = Heros();
                   var escolha = 'Rogue';
                   hero.escolhaClasse(escolha);
                   Navigator.push(context,
