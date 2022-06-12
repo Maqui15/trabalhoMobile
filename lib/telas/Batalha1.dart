@@ -12,23 +12,68 @@ class _Batalha1State extends State<Batalha1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-      child: Column(
-        children: [
-          Column(
+        body: Container(
+      height: 300,
+      width: double.infinity,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("images/cenario.jpeg"), fit: BoxFit.cover)),
+      child: Column(children: [
+        Column(
+          children: [Row()],
+        ),
+        //Menu de Skills e status
+        Container(
+          width: double.infinity,
+          color: Colors.black,
+          height: 200,
+          child: Row(
             children: [
-              Row()
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(10.0),
+                            primary: Colors.black,
+                            textStyle: const TextStyle(fontSize: 14),
+                            backgroundColor:
+                                const Color.fromARGB(120, 158, 158, 158),
+                          ),
+                          onPressed: () {},
+                          child: Text('Teste')),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(10.0),
+                            primary: Colors.black,
+                            textStyle: const TextStyle(fontSize: 14),
+                            backgroundColor:
+                                const Color.fromARGB(120, 158, 158, 158),
+                          ),
+                          onPressed: () {},
+                          child: Text('Teste')),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(10.0),
+                            primary: Colors.black,
+                            textStyle: const TextStyle(fontSize: 14),
+                            backgroundColor:
+                                const Color.fromARGB(120, 158, 158, 158),
+                          ),
+                          onPressed: () {},
+                          child: Text('Teste')),
+                    ],
+                  )
+                ],
+              ),
+              Column()
             ],
           ),
-          //Menu de Skills e status
-          Column(
-            children: [
-              Row(),
-              Row()
-            ],
-          ),
+        ),
       ]),
-    ) 
-    ); 
+    ));
   }
 }
