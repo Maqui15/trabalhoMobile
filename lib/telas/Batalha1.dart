@@ -12,60 +12,83 @@ class _Batalha1State extends State<Batalha1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      height: 300,
+      body: Container(
       width: double.infinity,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("images/cenario.jpeg"), fit: BoxFit.cover)),
       child: Column(children: [
-        Column(
-          children: [Row()],
+        Container(
+          padding: EdgeInsets.all(100),
+          height: 400,
+          width: double.infinity,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("lib/images/cenario.jpeg"),
+                  fit: BoxFit.cover)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                Image.asset("lib/images/heroi.png",
+                width: 100,
+                height: 100,)
+                ],
+              ),
+              Row(children: [
+                Image.asset("lib/images/monstro.gif", 
+                width: 100, 
+                height: 100,)
+              ],)
+            ],
+          ),
         ),
         //Menu de Skills e status
         Container(
           width: double.infinity,
           color: Colors.black,
-          height: 200,
+          height: 250,
           child: Row(
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                          style: TextButton.styleFrom(
-                            padding: const EdgeInsets.all(10.0),
-                            primary: Colors.black,
-                            textStyle: const TextStyle(fontSize: 14),
-                            backgroundColor:
-                                const Color.fromARGB(120, 158, 158, 158),
-                          ),
-                          onPressed: () {},
-                          child: Text('Teste')),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                            padding: const EdgeInsets.all(10.0),
-                            primary: Colors.black,
-                            textStyle: const TextStyle(fontSize: 14),
-                            backgroundColor:
-                                const Color.fromARGB(120, 158, 158, 158),
-                          ),
-                          onPressed: () {},
-                          child: Text('Teste')),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                            padding: const EdgeInsets.all(10.0),
-                            primary: Colors.black,
-                            textStyle: const TextStyle(fontSize: 14),
-                            backgroundColor:
-                                const Color.fromARGB(120, 158, 158, 158),
-                          ),
-                          onPressed: () {},
-                          child: Text('Teste')),
-                    ],
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    width: 100,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                            style: TextButton.styleFrom(
+                              padding: const EdgeInsets.all(10.0),
+                              primary: Colors.black,
+                              textStyle: const TextStyle(fontSize: 14),
+                              backgroundColor:
+                                  const Color.fromARGB(120, 158, 158, 158),
+                            ),
+                            onPressed: () {},
+                            child: Text('Teste')),
+                        TextButton(
+                            style: TextButton.styleFrom(
+                              padding: const EdgeInsets.all(10.0),
+                              primary: Colors.black,
+                              textStyle: const TextStyle(fontSize: 14),
+                              backgroundColor:
+                                  const Color.fromARGB(120, 158, 158, 158),
+                            ),
+                            onPressed: () {},
+                            child: Text('Teste')),
+                        TextButton(
+                            style: TextButton.styleFrom(
+                              padding: const EdgeInsets.all(10.0),
+                              primary: Colors.black,
+                              textStyle: const TextStyle(fontSize: 14),
+                              backgroundColor:
+                                  const Color.fromARGB(120, 158, 158, 158),
+                            ),
+                            onPressed: () {},
+                            child: Text('Teste')),
+                      ],
+                    ),
                   )
                 ],
               ),
