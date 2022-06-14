@@ -9,7 +9,7 @@ Inicial();
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 600,
+      height: 705,
       width: double.infinity,
       padding: EdgeInsets.all(30),
       color: Colors.black,
@@ -24,7 +24,7 @@ Inicial();
                   color: Colors.orange,
                   fontWeight: FontWeight.bold, 
                 ),),
-                Text('Sem nome ainda',
+                Text('Adventures',
                 style: TextStyle(
                   color: Colors.orange,
                   fontSize: 22

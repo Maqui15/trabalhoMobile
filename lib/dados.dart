@@ -2,11 +2,11 @@ import 'dart:math';
 
 class Dados{
 
-  var d20;
-  var d6;
-  var d12;
-  var heroi;
-  var monstro;
+  var d20 = 0;
+  var d6 = 0;
+  var d12 = 0;
+  var heroi = 0;
+  var monstro = 0;
 
   Dados(){
     this.d20 = 0;

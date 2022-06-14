@@ -61,6 +61,9 @@ flutter:
     - lib/images/hero.jpeg
     - lib/images/monstro.gif
     - lib/images/heroi.png
+    - lib/images/Maguin.gif
+    - lib/images/m.png
+    - lib/images/boy.gif
 
 
   # To add assets to your application, add an assets section, like this:
