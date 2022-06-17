@@ -20,4 +20,11 @@ class Monster {
     Monster(100, 20, 16, Image.asset('m.png')),
     Monster(150, 16, 26, Image.asset('monstro.gif'))
   ];
+
+  int skilsMonster(var skill) {
+    if (skill == 1) {
+      dmg += 5;
+    }
+    return dmg;
+  }
 }
