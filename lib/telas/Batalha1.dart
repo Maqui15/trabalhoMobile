@@ -10,8 +10,7 @@ class Batalha1 extends StatefulWidget {
 }
 
 class _Batalha1State extends State<Batalha1> {
-
-   Heros hero = Heros();
+  Heros hero = Heros();
 
   @override
   Widget build(BuildContext context) {
@@ -27,33 +26,42 @@ class _Batalha1State extends State<Batalha1> {
               image: DecorationImage(
                   image: AssetImage("lib/images/cenario.jpeg"),
                   fit: BoxFit.cover)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.only(right: 70, top: 170),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "lib/images/boy.gif",
-                      width: 150,
-                      height: 150,
-                    )
-                  ],
-                ),
+              LinearProgressIndicator(
+                backgroundColor: Colors.red,
+                valueColor: AlwaysStoppedAnimation(Colors.blue),
+                minHeight: 18,
               ),
-              Container(
-                margin: EdgeInsets.only(left: 70, top: 170),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "lib/images/monstro.gif",
-                      width: 150,
-                      height: 150,
-                    )
-                  ],
-                ),
-              )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 70, top: 170),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          "lib/images/boy.gif",
+                          width: 150,
+                          height: 150,
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 70, top: 170),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          "lib/images/monstro.gif",
+                          width: 150,
+                          height: 150,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ],
           ),
         ),
@@ -61,78 +69,79 @@ class _Batalha1State extends State<Batalha1> {
         Container(
           width: double.infinity,
           color: Colors.black,
-          height: 250,
-          child: Row(
+          height: 350,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 50,
-                    child: Column(
-                      children: [
-                        LinearProgressIndicator(
-                          backgroundColor: Colors.redAccent,
-                          valueColor: AlwaysStoppedAnimation(Colors.green),
-                          minHeight: 20,
-                        ),
-                        LinearProgressIndicator(
-                          backgroundColor: Colors.redAccent,
-                          valueColor: AlwaysStoppedAnimation(Colors.green),
-                          minHeight: 20,
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    width: 100,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                            style: TextButton.styleFrom(
-                              padding: const EdgeInsets.all(10.0),
-                              primary: Colors.black,
-                              textStyle: const TextStyle(fontSize: 14),
-                              backgroundColor:
-                                  const Color.fromARGB(120, 158, 158, 158),
-                            ),
-                            onPressed: () {
-                              hero.skillsGuerreiro(1);
-                            },
-                            child: Text('Teste')),
-                        TextButton(
-                            style: TextButton.styleFrom(
-                              padding: const EdgeInsets.all(10.0),
-                              primary: Colors.black,
-                              textStyle: const TextStyle(fontSize: 14),
-                              backgroundColor:
-                                  const Color.fromARGB(120, 158, 158, 158),
-                            ),
-                            onPressed: () {
-                              hero.skillsGuerreiro(2);
-                            },
-                            child: Text('Teste')),
-                        TextButton(
-                            style: TextButton.styleFrom(
-                              padding: const EdgeInsets.all(10.0),
-                              primary: Colors.black,
-                              textStyle: const TextStyle(fontSize: 14),
-                              backgroundColor:
-                                  const Color.fromARGB(120, 158, 158, 158),
-                            ),
-                            onPressed: () {
-                              hero.skillsGuerreiro(3);
-                            },
-                            child: Text('Teste')),
-                      ],
-                    ),
-                  )
-                ],
+              Container(
+                width: 450,
+                margin: EdgeInsets.only(top: 10),
+                child: LinearProgressIndicator(
+                  backgroundColor: Colors.red,
+                  valueColor: AlwaysStoppedAnimation(Colors.green),
+                  minHeight: 18,
+                  value: hero.hp,
+                ),
               ),
-              Column()
+              Container(
+                width: 450,
+                margin: EdgeInsets.all(10),
+                child: LinearProgressIndicator(
+                  backgroundColor: Colors.red,
+                  valueColor: AlwaysStoppedAnimation(Colors.blue),
+                  minHeight: 18,
+                  value: hero.mana,
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                margin:
+                    EdgeInsets.only(left: 50, right: 50, bottom: 20, top: 20),
+                height: 35,
+                child: TextButton(
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.all(10.0),
+                      primary: Colors.black,
+                      textStyle: const TextStyle(fontSize: 14),
+                      backgroundColor: const Color.fromARGB(120, 158, 158, 158),
+                    ),
+                    onPressed: () {
+                      hero.skillsGuerreiro(1);
+                    },
+                    child: Text('Teste')),
+              ),
+              Container(
+                width: double.infinity,
+                margin: EdgeInsets.only(left: 50, right: 50, bottom: 20),
+                height: 35,
+                child: TextButton(
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.all(10.0),
+                      primary: Colors.black,
+                      textStyle: const TextStyle(fontSize: 14),
+                      backgroundColor: const Color.fromARGB(120, 158, 158, 158),
+                    ),
+                    onPressed: () {
+                      hero.skillsGuerreiro(2);
+                    },
+                    child: Text('Teste')),
+              ),
+              Container(
+                width: double.infinity,
+                margin: EdgeInsets.only(left: 50, right: 50, bottom: 20),
+                height: 35,
+                child: TextButton(
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.all(10.0),
+                      primary: Colors.black,
+                      textStyle: const TextStyle(fontSize: 14),
+                      backgroundColor: const Color.fromARGB(120, 158, 158, 158),
+                    ),
+                    onPressed: () {
+                      hero.skillsGuerreiro(3);
+                    },
+                    child: Text('Teste')),
+              )
             ],
           ),
         ),

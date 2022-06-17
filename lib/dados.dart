@@ -9,25 +9,25 @@ class Dados{
   var monstro = 0;
 
   Dados(){
-    this.d20 = 0;
-    this.d6 = 0;
-    this.d12 = 0;
-    this.heroi = 0;
-    this.monstro = 0;
+    d20 = 0;
+    d6 = 0;
+    d12 = 0;
+    heroi = 0;
+    monstro = 0;
   }
 
   int rowD20(){
-    this.d20 = Random().nextInt(20);
-    return this.d20;
+    d20 = Random().nextInt(20);
+    return d20;
   }
 
   int rowD6(){
-    this.d6 = Random().nextInt(6);
-    return this.d6;
+    d6 = Random().nextInt(6);
+    return d6;
   }
 
   int rowD12(){
-      this.d12 = Random().nextInt(12);
-    return this.d12;
+      d12 = Random().nextInt(12);
+    return d12;
   }  
 }

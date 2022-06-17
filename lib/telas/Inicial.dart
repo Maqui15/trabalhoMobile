@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:jogo_mobile/telas/SegundaTela.dart';
 
 class Inicial extends StatelessWidget {
-
-Inicial();
+  Inicial();
 
   @override
   Widget build(BuildContext context) {
@@ -13,30 +11,31 @@ Inicial();
       width: double.infinity,
       padding: EdgeInsets.all(30),
       color: Colors.black,
-        child: Column(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text('RPG', 
+      child: Column(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'RPG',
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.orange,
-                  fontWeight: FontWeight.bold, 
-                ),),
-                Text('Adventures',
-                style: TextStyle(
-                  color: Colors.orange,
-                  fontSize: 22
-                ),),
-              ],  
-            ),
-            Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(100),
-                  width: 600,
-                  child: TextButton(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                'Adventures',
+                style: TextStyle(color: Colors.orange, fontSize: 22),
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              Container(
+                margin: EdgeInsets.all(100),
+                width: 600,
+                child: TextButton(
                     style: TextButton.styleFrom(
                       padding: const EdgeInsets.all(16.0),
                       primary: Colors.black,
@@ -48,16 +47,16 @@ Inicial();
                         context,
                         MaterialPageRoute(builder: (context) => SegundaTela()),
                       );
-                    }, 
-                    child: Text('Jogar',
-                      style: TextStyle(
-                      fontSize: 16 
-                      ),)),
-                ),
-              ],
-            ),
-          ],
-        ),
-      );
+                    },
+                    child: Text(
+                      'Jogar',
+                      style: TextStyle(fontSize: 16),
+                    )),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
