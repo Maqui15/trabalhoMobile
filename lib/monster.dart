@@ -25,6 +25,9 @@ class Monster {
     if (skill == 1) {
       dmg += 5;
     }
+    if (skill == 2) {
+      dmg += 12;
+    }
     return dmg;
   }
 }
