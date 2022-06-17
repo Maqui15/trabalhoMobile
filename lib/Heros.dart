@@ -10,34 +10,38 @@ class Heros {
   var dex;
   var endu;
   var level = 1;
-  List classe = ['Guerreiro', 'Mago', 'Rogue'];
+  var classeEscolhida;
+  List classes = ['Guerreiro', 'Mago', 'Rogue'];
 
   Heros();
 
   void escolhaClasse(var classe) {
-    if (this.classe.elementAt(0) == classe) {
+    if (this.classes.elementAt(0) == classe) {
       str = 20;
       intel = 5;
       dex = 8;
       endu = 14;
       hp = 100;
       mana = 100;
+      classeEscolhida = 'Guerreiro';
     }
-    if (this.classe.elementAt(1) == classe) {
+    if (this.classes.elementAt(1) == classe) {
       intel = 20;
       str = 5;
       dex = 11;
       endu = 5;
       hp = 100;
       mana = 100;
+      classeEscolhida = 'Mago';
     }
-    if (this.classe.elementAt(2) == classe) {
+    if (this.classes.elementAt(2) == classe) {
       dex = 20;
       intel = 12;
       str = 10;
       endu = 8;
       hp = 100;
       mana = 100;
+      classeEscolhida = 'Rogue';
     }
   }
 
@@ -120,7 +124,7 @@ class Heros {
     mana += 5;
   }
 
-  bool batalha() {
+  bool confronto() {
     Dados dado = new Dados();
     bool result = true;
     bool empate = false;
@@ -136,5 +140,22 @@ class Heros {
       empate = true;
     }
     return result;
+  }
+
+  void batalhar(var skillH) {
+    int dmgH;
+    switch (classeEscolhida) {
+      case 'Guerreiro':
+        dmgH = skillsGuerreiro(skillH);
+        break;
+      case 'Mago':
+        dmgH = skillsMago(skillH);
+        break;
+      case 'Rogue':
+        dmgH = skillsRogue(skillH);
+        break;
+      default:
+        null;
+    }
   }
 }
