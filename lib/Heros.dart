@@ -134,13 +134,17 @@ class Heros {
   bool confronto() {
     Dados dado = Dados();
     bool result = true;
+    var dadoDefesa;
 
-    var dado1 = dado.rowD20();
-    var dado2 = dado.rowD12();
-
-    if (dado1 >= dado2) {
+    var dadoAtaque = dado.rowD20();
+    if (classeEscolhida == 'Rogue') {
+      dadoDefesa == dado.rowD20();
+    } else {
+      dadoDefesa = dado.rowD12();
+    }
+    if (dadoAtaque >= dadoDefesa) {
       result = true;
-    } else if (dado1 < dado2) {
+    } else if (dadoAtaque < dadoDefesa) {
       result = false;
     }
     return result;
