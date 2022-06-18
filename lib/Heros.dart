@@ -135,12 +135,12 @@ class Heros {
     Dados dado = Dados();
     bool result = true;
 
-    dado.heroi = dado.rowD20();
-    dado.monstro = dado.rowD20();
+    var dado1 = dado.rowD20();
+    var dado2 = dado.rowD12();
 
-    if (dado.heroi >= dado.monstro) {
+    if (dado1 >= dado2) {
       result = true;
-    } else if (dado.heroi < dado.monstro) {
+    } else if (dado1 < dado2) {
       result = false;
     }
     return result;
@@ -169,7 +169,7 @@ class Heros {
     }
     sleep(duration);
     monster.skilsMonster(Random().nextInt(1));
-    if (confronto() == false) {
+    if (confronto() == true) {
       hp -= monster.dmg * (endu / 100);
     } else {
       null;
