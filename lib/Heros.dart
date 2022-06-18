@@ -1,4 +1,9 @@
 import 'dart:core';
+import 'dart:io';
+import 'dart:math';
+import 'package:flutter/cupertino.dart';
+import 'package:jogo_mobile/monster.dart';
+
 import 'dados.dart';
 
 class Heros {
@@ -14,6 +19,8 @@ class Heros {
   List classes = ['Guerreiro', 'Mago', 'Rogue'];
 
   Heros();
+
+  Monster monster = Monster(0, 0, 0, Image.asset(''));
 
   void escolhaClasse(var classe) {
     if (this.classes.elementAt(0) == classe) {
@@ -125,25 +132,23 @@ class Heros {
   }
 
   bool confronto() {
-    Dados dado = new Dados();
+    Dados dado = Dados();
     bool result = true;
-    bool empate = false;
 
     dado.heroi = dado.rowD20();
     dado.monstro = dado.rowD20();
 
-    if (dado.heroi > dado.monstro) {
+    if (dado.heroi >= dado.monstro) {
       result = true;
     } else if (dado.heroi < dado.monstro) {
       result = false;
-    } else {
-      empate = true;
     }
     return result;
   }
 
   void batalhar(var skillH) {
-    int dmgH;
+    var dmgH;
+    var duration = Duration(seconds: 3);
     switch (classeEscolhida) {
       case 'Guerreiro':
         dmgH = skillsGuerreiro(skillH);
@@ -156,6 +161,18 @@ class Heros {
         break;
       default:
         null;
+    }
+    if (confronto() == true) {
+      monster.hp -= dmgH * (monster.endu / 100);
+    } else {
+      null;
+    }
+    sleep(duration);
+    monster.skilsMonster(Random(2));
+    if (confronto() == false) {
+      hp -= monster.dmg * (endu / 100);
+    } else {
+      null;
     }
   }
 }
