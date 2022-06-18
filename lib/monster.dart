@@ -22,10 +22,10 @@ class Monster {
   ];
 
   int skilsMonster(var skill) {
-    if (skill == 1) {
+    if (skill == 0) {
       dmg += 5;
     }
-    if (skill == 2) {
+    if (skill == 1) {
       dmg += 12;
     }
     return dmg;
