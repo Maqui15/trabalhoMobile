@@ -168,7 +168,7 @@ class Heros {
       null;
     }
     sleep(duration);
-    monster.skilsMonster(Random(2));
+    monster.skilsMonster(Random().nextInt(1));
     if (confronto() == false) {
       hp -= monster.dmg * (endu / 100);
     } else {
