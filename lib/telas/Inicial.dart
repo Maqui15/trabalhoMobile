@@ -12,7 +12,7 @@ class Inicial extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.all(30),
         decoration: BoxDecoration(
-            image: DecorationImage(
+            image: const DecorationImage(
                 image: AssetImage("lib/images/menu.jpeg"), fit: BoxFit.cover)),
         child: Column(
           children: [
