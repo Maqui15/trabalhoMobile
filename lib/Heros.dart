@@ -1,95 +1,30 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, file_names
 import 'dart:core';
 
+import 'package:jogo_mobile/Atributos.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Heros {
-  var nome;
-  var hp;
-  var mana;
-  var str;
-  var intel;
-  var dex;
-  var endu;
-  var level = 1;
-  var classeEscolhida;
-  List classes = ['Guerreiro', 'Mago', 'Rogue'];
-
   Heros();
 
-  void classeGuerreiro() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    str = 20;
-    intel = 5;
-    dex = 8;
-    endu = 14;
-    hp = 100;
-    mana = 100;
-    classeEscolhida = classes.elementAt(0);
-    prefs.setInt('hp', hp);
-    prefs.setInt('intel', intel);
-    prefs.setInt('dex', dex);
-    prefs.setInt('endu', endu);
-    prefs.setInt('mana', mana);
-    prefs.setInt('level', level);
-    prefs.setString('classeEscolhida', classeEscolhida);
-    prefs.setString('nome', nome);
-  }
-
-  void classeMago() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    intel = 20;
-    str = 5;
-    dex = 11;
-    endu = 5;
-    hp = 100;
-    mana = 100;
-    classeEscolhida = classes.elementAt(1);
-    prefs.setInt('hp', hp);
-    prefs.setInt('intel', intel);
-    prefs.setInt('dex', dex);
-    prefs.setInt('endu', endu);
-    prefs.setInt('mana', mana);
-    prefs.setInt('level', level);
-    prefs.setString('classeEscolhida', classeEscolhida);
-    prefs.setString('nome', nome);
-  }
-
-  void classeRogue() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    dex = 20;
-    intel = 12;
-    str = 10;
-    endu = 8;
-    hp = 100;
-    mana = 100;
-    classeEscolhida = classes.elementAt(2);
-    prefs.setInt('hp', hp);
-    prefs.setInt('intel', intel);
-    prefs.setInt('dex', dex);
-    prefs.setInt('endu', endu);
-    prefs.setInt('mana', mana);
-    prefs.setInt('level', level);
-    prefs.setString('classeEscolhida', classeEscolhida);
-    prefs.setString('nome', nome);
-  }
+  Atributos att = Atributos();
 
   int skillsGuerreiro(int skill) {
     int dano = 0;
-    for (var i = 0; i <= str; i += 3) {
+    for (var i = 0; i <= att.str; i += 3) {
       dano += 1;
-      hp += 7;
+      att.hp += 7;
     }
     if (skill == 1) {
       dano += 16;
     }
     if (skill == 2) {
       dano += 21;
-      mana -= 6;
+      att.mana -= 6;
     }
     if (skill == 3) {
       dano += 30;
-      mana -= 20;
+      att.mana -= 20;
     }
 
     return dano;
@@ -97,59 +32,59 @@ class Heros {
 
   int skillsMago(int skill) {
     int dano = 0;
-    for (var i = 0; i <= intel; i += 2) {
+    for (var i = 0; i <= att.intel; i += 2) {
       dano += 1;
     }
     if (skill == 1) {
       dano += 10;
-      mana += 5;
+      att.mana += 5;
     }
     if (skill == 2) {
       dano += 30;
-      mana -= 10;
+      att.mana -= 10;
     }
     if (skill == 3) {
       dano += 45;
-      mana -= 20;
+      att.mana -= 20;
     }
     return dano;
   }
 
   int skillsRogue(int skill) {
     int dano = 0;
-    for (var i = 0; i <= dex; i += 1) {
+    for (var i = 0; i <= att.dex; i += 1) {
       dano += 1;
-      hp += 5;
+      att.hp += 5;
     }
     if (skill == 1) {
       dano += 19;
     }
     if (skill == 2) {
       dano += 23;
-      mana -= 8;
+      att.mana -= 8;
     }
     if (skill == 3) {
       dano += 35;
-      mana -= 20;
+      att.mana -= 20;
     }
     return dano;
   }
 
   void levelUp(int status) {
-    level += 1;
+    att.level += 1;
     if (status == 1) {
-      str += 3;
+      att.str += 3;
     }
     if (status == 2) {
-      intel += 3;
+      att.intel += 3;
     }
     if (status == 3) {
-      dex += 3;
+      att.dex += 3;
     }
     if (status == 4) {
-      endu += 3;
+      att.endu += 3;
     }
-    hp += 10;
-    mana += 5;
+    att.hp += 10;
+    att.mana += 5;
   }
 }

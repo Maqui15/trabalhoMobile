@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
+import 'package:jogo_mobile/Atributos.dart';
 import 'package:jogo_mobile/Batalha.dart';
 import 'package:jogo_mobile/Heros.dart';
 
@@ -13,6 +14,7 @@ class Batalha1 extends StatefulWidget {
 class _Batalha1State extends State<Batalha1> {
   Heros hero = Heros();
   Batalha b = Batalha();
+  Atributos att = Atributos();
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +85,7 @@ class _Batalha1State extends State<Batalha1> {
                   backgroundColor: Colors.red,
                   valueColor: const AlwaysStoppedAnimation(Colors.green),
                   minHeight: 18,
-                  value: hero.hp,
+                  value: att.hp,
                 ),
               ),
               Container(
@@ -93,7 +95,7 @@ class _Batalha1State extends State<Batalha1> {
                   backgroundColor: Colors.red,
                   valueColor: const AlwaysStoppedAnimation(Colors.blue),
                   minHeight: 18,
-                  value: hero.mana,
+                  value: att.mana,
                 ),
               ),
               Container(
@@ -110,7 +112,7 @@ class _Batalha1State extends State<Batalha1> {
                     ),
                     onPressed: () {
                       b.batalhar(1);
-                      print(hero.hp);
+                      print(att.hp);
                     },
                     child: const Text('Teste')),
               ),
