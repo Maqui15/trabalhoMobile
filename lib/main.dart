@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jogo_mobile/telas/TelaBatalha.dart';
-import 'package:jogo_mobile/telas/EscolhaDeClasse.dart';
 import 'package:jogo_mobile/telas/Inicial.dart';
 
 main() => runApp(const RPG());
@@ -19,6 +17,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Inicial();
+    return const Inicial();
   }
 }

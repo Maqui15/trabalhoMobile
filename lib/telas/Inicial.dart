@@ -3,8 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:jogo_mobile/telas/SegundaTela.dart';
 
-import '../Heros.dart';
-
 class Inicial extends StatelessWidget {
   const Inicial({Key? key}) : super(key: key);
 

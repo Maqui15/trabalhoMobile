@@ -24,7 +24,7 @@ class TerceiraTela extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => EscolhaDeClasse()),
+                          builder: (context) => const EscolhaDeClasse()),
                     );
                   },
                   child: const Text(

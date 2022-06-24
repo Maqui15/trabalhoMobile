@@ -1,10 +1,5 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, file_names
 import 'dart:core';
-import 'dart:io';
-import 'dart:math';
-import 'package:flutter/cupertino.dart';
-import 'package:jogo_mobile/monster.dart';
-import 'dados.dart';
 
 class Heros {
   var nome;
@@ -27,7 +22,7 @@ class Heros {
     endu = 14;
     hp = 100;
     mana = 100;
-    classeEscolhida = classes[0];
+    classeEscolhida = classes.elementAt(0);
   }
 
   void classeMago() {
@@ -37,7 +32,7 @@ class Heros {
     endu = 5;
     hp = 100;
     mana = 100;
-    classeEscolhida = classes[1];
+    classeEscolhida = classes.elementAt(1);
   }
 
   void classeRogue() {
@@ -47,7 +42,7 @@ class Heros {
     endu = 8;
     hp = 100;
     mana = 100;
-    classeEscolhida = classes[2];
+    classeEscolhida = classes.elementAt(2);
   }
 
   int skillsGuerreiro(int skill) {

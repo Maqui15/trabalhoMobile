@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
@@ -39,6 +41,7 @@ class Batalha {
     var duration = const Duration(seconds: 3);
     print(hero.classeEscolhida);
     print('teste');
+    print(hero.hp);
     switch (hero.classeEscolhida) {
       case 'Guerreiro':
         dmgH = hero.skillsGuerreiro(skillH);

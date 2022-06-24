@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, prefer_initializing_formals
 
 import 'dart:core';
-import 'package:flutter/material.dart';
 
 class Monster {
   var hp;
@@ -13,7 +12,7 @@ class Monster {
     this.hp = hp;
     this.dmg = dmg;
     this.endu = endu;
-    this.imagem = image;
+    imagem = image;
   }
 
   int skilsMonster(var skill) {
