@@ -1,14 +1,20 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import '../Heros.dart';
-import 'Batalha1.dart';
+import '../dados.dart';
+import 'TelaBatalha.dart';
 
-class EscolhaDeClasse extends StatelessWidget {
+class EscolhaDeClasse extends StatefulWidget {
+  const EscolhaDeClasse({Key? key}) : super(key: key);
+
+  @override
+  State<EscolhaDeClasse> createState() => _EscolhaDeClasseState();
+}
+
+class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
   @override
   Widget build(BuildContext context) {
     final nameController = TextEditingController();
-    Heros hero = Heros();
-
-    EscolhaDeClasse();
 
     return Scaffold(
       body: Container(
@@ -19,12 +25,12 @@ class EscolhaDeClasse extends StatelessWidget {
           children: [
             TextField(
               controller: nameController,
-              decoration: InputDecoration(labelText: 'Nickname'),
+              decoration: const InputDecoration(labelText: 'Nickname'),
               //style: Style,
             ),
             Container(
               width: 300,
-              margin: EdgeInsets.all(20),
+              margin: const EdgeInsets.all(20),
               child: TextButton(
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.all(16.0),
@@ -33,11 +39,13 @@ class EscolhaDeClasse extends StatelessWidget {
                     backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                   ),
                   onPressed: () {
-                    var escolha = 'Guerreiro';
-                    hero.escolhaClasse(escolha);
+                    Heros hero = Heros();
+                    hero.classeEscolhida = hero.classes[0];
                     hero.nome = nameController.text;
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Batalha1()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Batalha1()));
                   },
                   child: const Text(
                     'Guerreiro',
@@ -58,10 +66,13 @@ class EscolhaDeClasse extends StatelessWidget {
                     backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                   ),
                   onPressed: () {
-                    var escolha = 'Mago';
-                    hero.escolhaClasse(escolha);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Batalha1()));
+                    Heros hero = Heros();
+                    hero.classeEscolhida = hero.classes[0];
+                    hero.nome = nameController.text;
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Batalha1()));
                   },
                   child: const Text(
                     'Mago',
@@ -82,10 +93,13 @@ class EscolhaDeClasse extends StatelessWidget {
                     backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                   ),
                   onPressed: () {
-                    var escolha = 'Rogue';
-                    hero.escolhaClasse(escolha);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Batalha1()));
+                    Heros hero = Heros();
+                    hero.classeEscolhida = hero.classes[0];
+                    hero.nome = nameController.text;
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Batalha1()));
                   },
                   child: const Text(
                     'Rogue',

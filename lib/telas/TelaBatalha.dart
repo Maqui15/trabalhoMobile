@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
+import 'package:jogo_mobile/Batalha.dart';
 import 'package:jogo_mobile/Heros.dart';
 
 class Batalha1 extends StatefulWidget {
@@ -11,24 +12,26 @@ class Batalha1 extends StatefulWidget {
 
 class _Batalha1State extends State<Batalha1> {
   Heros hero = Heros();
+  Batalha b = Batalha();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
+        body: SizedBox(
       width: double.infinity,
       child: Column(children: [
         Container(
-          padding: EdgeInsets.only(right: 30, left: 30, top: 50, bottom: 10),
+          padding:
+              const EdgeInsets.only(right: 30, left: 30, top: 50, bottom: 10),
           height: 400,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("lib/images/cenario.jpeg"),
                   fit: BoxFit.cover)),
           child: Column(
             children: [
-              LinearProgressIndicator(
+              const LinearProgressIndicator(
                 backgroundColor: Colors.red,
                 valueColor: AlwaysStoppedAnimation(Colors.blue),
                 minHeight: 18,
@@ -37,7 +40,7 @@ class _Batalha1State extends State<Batalha1> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(right: 70, top: 170),
+                    margin: const EdgeInsets.only(right: 70, top: 170),
                     child: Row(
                       children: [
                         Image.asset(
@@ -49,7 +52,7 @@ class _Batalha1State extends State<Batalha1> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 70, top: 170),
+                    margin: const EdgeInsets.only(left: 70, top: 170),
                     child: Row(
                       children: [
                         Image.asset(
@@ -75,28 +78,28 @@ class _Batalha1State extends State<Batalha1> {
             children: [
               Container(
                 width: 450,
-                margin: EdgeInsets.only(top: 10),
+                margin: const EdgeInsets.only(top: 10),
                 child: LinearProgressIndicator(
                   backgroundColor: Colors.red,
-                  valueColor: AlwaysStoppedAnimation(Colors.green),
+                  valueColor: const AlwaysStoppedAnimation(Colors.green),
                   minHeight: 18,
                   value: hero.hp,
                 ),
               ),
               Container(
                 width: 450,
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: LinearProgressIndicator(
                   backgroundColor: Colors.red,
-                  valueColor: AlwaysStoppedAnimation(Colors.blue),
+                  valueColor: const AlwaysStoppedAnimation(Colors.blue),
                   minHeight: 18,
                   value: hero.mana,
                 ),
               ),
               Container(
                 width: double.infinity,
-                margin:
-                    EdgeInsets.only(left: 50, right: 50, bottom: 20, top: 20),
+                margin: const EdgeInsets.only(
+                    left: 50, right: 50, bottom: 20, top: 20),
                 height: 35,
                 child: TextButton(
                     style: TextButton.styleFrom(
@@ -106,13 +109,13 @@ class _Batalha1State extends State<Batalha1> {
                       backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                     ),
                     onPressed: () {
-                      hero.skillsGuerreiro(1);
+                      b.batalhar(1);
                     },
-                    child: Text('Teste')),
+                    child: const Text('Teste')),
               ),
               Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(left: 50, right: 50, bottom: 20),
+                margin: const EdgeInsets.only(left: 50, right: 50, bottom: 20),
                 height: 35,
                 child: TextButton(
                     style: TextButton.styleFrom(
@@ -124,11 +127,11 @@ class _Batalha1State extends State<Batalha1> {
                     onPressed: () {
                       hero.skillsGuerreiro(2);
                     },
-                    child: Text('Teste')),
+                    child: const Text('Teste')),
               ),
               Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(left: 50, right: 50, bottom: 20),
+                margin: const EdgeInsets.only(left: 50, right: 50, bottom: 20),
                 height: 35,
                 child: TextButton(
                     style: TextButton.styleFrom(
@@ -140,7 +143,7 @@ class _Batalha1State extends State<Batalha1> {
                     onPressed: () {
                       hero.skillsGuerreiro(3);
                     },
-                    child: Text('Teste')),
+                    child: const Text('Teste')),
               )
             ],
           ),

@@ -1,9 +1,9 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, file_names
 import 'dart:core';
 import 'dart:io';
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:jogo_mobile/monster.dart';
-
 import 'dados.dart';
 
 class Heros {
@@ -15,40 +15,40 @@ class Heros {
   var dex;
   var endu;
   var level = 1;
-  var classeEscolhida;
+  var classeEscolhida = 'df';
   List classes = ['Guerreiro', 'Mago', 'Rogue'];
 
   Heros();
 
-  Monster monster = Monster(0, 0, 0, Image.asset(''));
+  //Monster monster = Monster(0, 0, 0, Image.asset(''));
 
   void escolhaClasse(var classe) {
-    if (this.classes.elementAt(0) == classe) {
+    if (classes.elementAt(0) == classe) {
       str = 20;
       intel = 5;
       dex = 8;
       endu = 14;
       hp = 100;
       mana = 100;
-      classeEscolhida = 'Guerreiro';
+      classeEscolhida = classe[0];
     }
-    if (this.classes.elementAt(1) == classe) {
+    if (classes.elementAt(1) == classe) {
       intel = 20;
       str = 5;
       dex = 11;
       endu = 5;
       hp = 100;
       mana = 100;
-      classeEscolhida = 'Mago';
+      classeEscolhida = classe[1];
     }
-    if (this.classes.elementAt(2) == classe) {
+    if (classes.elementAt(2) == classe) {
       dex = 20;
       intel = 12;
       str = 10;
       endu = 8;
       hp = 100;
       mana = 100;
-      classeEscolhida = 'Rogue';
+      classeEscolhida = classe[2];
     }
   }
 
@@ -114,7 +114,7 @@ class Heros {
   }
 
   void levelUp(int status) {
-    this.level += 1;
+    level += 1;
     if (status == 1) {
       str += 3;
     }
@@ -129,54 +129,5 @@ class Heros {
     }
     hp += 10;
     mana += 5;
-  }
-
-  bool confronto() {
-    Dados dado = Dados();
-    bool result = true;
-    var dadoDefesa;
-
-    var dadoAtaque = dado.rowD20();
-    if (classeEscolhida == 'Rogue') {
-      dadoDefesa == dado.rowD20();
-    } else {
-      dadoDefesa = dado.rowD12();
-    }
-    if (dadoAtaque >= dadoDefesa) {
-      result = true;
-    } else if (dadoAtaque < dadoDefesa) {
-      result = false;
-    }
-    return result;
-  }
-
-  void batalhar(var skillH) {
-    var dmgH;
-    var duration = Duration(seconds: 3);
-    switch (classeEscolhida) {
-      case 'Guerreiro':
-        dmgH = skillsGuerreiro(skillH);
-        break;
-      case 'Mago':
-        dmgH = skillsMago(skillH);
-        break;
-      case 'Rogue':
-        dmgH = skillsRogue(skillH);
-        break;
-      default:
-        null;
-    }
-    if (confronto() == true) {
-      monster.hp -= dmgH * (monster.endu / 100);
-    } else {
-      null;
-    }
-    sleep(duration);
-    monster.skilsMonster(Random().nextInt(1));
-    if (confronto() == true) {
-      hp -= monster.dmg * (endu / 100);
-    } else {
-      null;
-    }
   }
 }

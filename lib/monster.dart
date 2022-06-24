@@ -1,7 +1,7 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, prefer_initializing_formals
+
 import 'dart:core';
 import 'package:flutter/material.dart';
-
-import 'dados.dart';
 
 class Monster {
   var hp;
@@ -15,11 +15,6 @@ class Monster {
     this.endu = endu;
     this.imagem = image;
   }
-
-  List<Monster> monstroEncouter = [
-    Monster(100, 20, 16, Image.asset('m.png')),
-    Monster(150, 16, 26, Image.asset('monstro.gif'))
-  ];
 
   int skilsMonster(var skill) {
     if (skill == 0) {

@@ -1,8 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:jogo_mobile/telas/SegundaTela.dart';
 
+import '../Heros.dart';
+
 class Inicial extends StatelessWidget {
-  Inicial();
+  const Inicial({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,15 +14,15 @@ class Inicial extends StatelessWidget {
       body: Container(
         height: 705,
         width: double.infinity,
-        padding: EdgeInsets.all(30),
-        decoration: BoxDecoration(
-            image: const DecorationImage(
+        padding: const EdgeInsets.all(30),
+        decoration: const BoxDecoration(
+            image: DecorationImage(
                 image: AssetImage("lib/images/menu.jpeg"), fit: BoxFit.cover)),
         child: Column(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: const [
                 Text(
                   'RPG',
                   style: TextStyle(
@@ -36,7 +40,7 @@ class Inicial extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  margin: EdgeInsets.all(100),
+                  margin: const EdgeInsets.all(100),
                   width: 600,
                   child: TextButton(
                       style: TextButton.styleFrom(
@@ -49,10 +53,10 @@ class Inicial extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SegundaTela()),
+                              builder: (context) => const SegundaTela()),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Jogar',
                         style: TextStyle(fontSize: 16),
                       )),

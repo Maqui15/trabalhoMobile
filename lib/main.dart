@@ -1,19 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:jogo_mobile/telas/TelaBatalha.dart';
+import 'package:jogo_mobile/telas/EscolhaDeClasse.dart';
 import 'package:jogo_mobile/telas/Inicial.dart';
 
-main() => runApp(RPG());
+main() => runApp(const RPG());
 
 class RPG extends StatelessWidget {
+  const RPG({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: MyHome());
+    return const MaterialApp(home: Home());
   }
 }
 
-class MyHome extends StatelessWidget {
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Inicial();

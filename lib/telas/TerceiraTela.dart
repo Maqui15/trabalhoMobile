@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:jogo_mobile/telas/EscolhaDaClasse.dart';
+import 'package:jogo_mobile/telas/EscolhaDeClasse.dart';
 
 class TerceiraTela extends StatelessWidget {
+  const TerceiraTela({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,10 +16,10 @@ class TerceiraTela extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
-              margin: EdgeInsets.all(16),
+              margin: const EdgeInsets.all(16),
               child: TextButton(
                   style: TextButton.styleFrom(
-                      backgroundColor: Color.fromARGB(92, 158, 158, 158)),
+                      backgroundColor: const Color.fromARGB(92, 158, 158, 158)),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -27,7 +27,7 @@ class TerceiraTela extends StatelessWidget {
                           builder: (context) => EscolhaDeClasse()),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     'Proximo',
                     style: TextStyle(
                         color: Color.fromARGB(167, 255, 153, 0),
