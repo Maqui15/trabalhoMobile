@@ -23,7 +23,7 @@ class _Batalha1State extends State<Batalha1> {
         Container(
           padding:
               const EdgeInsets.only(right: 30, left: 30, top: 50, bottom: 10),
-          height: 400,
+          height: 300,
           width: double.infinity,
           decoration: const BoxDecoration(
               image: DecorationImage(
@@ -110,6 +110,7 @@ class _Batalha1State extends State<Batalha1> {
                     ),
                     onPressed: () {
                       b.batalhar(1);
+                      print(hero.hp);
                     },
                     child: const Text('Teste')),
               ),

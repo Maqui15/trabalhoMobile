@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, file_names
 import 'dart:core';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
 class Heros {
   var nome;
   var hp;
@@ -10,12 +12,13 @@ class Heros {
   var dex;
   var endu;
   var level = 1;
-  late final String classeEscolhida;
+  var classeEscolhida;
   List classes = ['Guerreiro', 'Mago', 'Rogue'];
 
   Heros();
 
-  void classeGuerreiro() {
+  void classeGuerreiro() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     str = 20;
     intel = 5;
     dex = 8;
@@ -23,9 +26,18 @@ class Heros {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(0);
+    prefs.setInt('hp', hp);
+    prefs.setInt('intel', intel);
+    prefs.setInt('dex', dex);
+    prefs.setInt('endu', endu);
+    prefs.setInt('mana', mana);
+    prefs.setInt('level', level);
+    prefs.setString('classeEscolhida', classeEscolhida);
+    prefs.setString('nome', nome);
   }
 
-  void classeMago() {
+  void classeMago() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     intel = 20;
     str = 5;
     dex = 11;
@@ -33,9 +45,18 @@ class Heros {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(1);
+    prefs.setInt('hp', hp);
+    prefs.setInt('intel', intel);
+    prefs.setInt('dex', dex);
+    prefs.setInt('endu', endu);
+    prefs.setInt('mana', mana);
+    prefs.setInt('level', level);
+    prefs.setString('classeEscolhida', classeEscolhida);
+    prefs.setString('nome', nome);
   }
 
-  void classeRogue() {
+  void classeRogue() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     dex = 20;
     intel = 12;
     str = 10;
@@ -43,6 +64,14 @@ class Heros {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(2);
+    prefs.setInt('hp', hp);
+    prefs.setInt('intel', intel);
+    prefs.setInt('dex', dex);
+    prefs.setInt('endu', endu);
+    prefs.setInt('mana', mana);
+    prefs.setInt('level', level);
+    prefs.setString('classeEscolhida', classeEscolhida);
+    prefs.setString('nome', nome);
   }
 
   int skillsGuerreiro(int skill) {
