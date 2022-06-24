@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
+import '../Atributos.dart';
 import '../Heros.dart';
 import 'TelaBatalha.dart';
 
@@ -12,6 +13,7 @@ class EscolhaDeClasse extends StatefulWidget {
 
 class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
   Heros hero = Heros();
+  Atributos att = Atributos();
   @override
   Widget build(BuildContext context) {
     final nameController = TextEditingController();
@@ -39,9 +41,9 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                     backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                   ),
                   onPressed: () {
-                    hero.classeGuerreiro();
-                    hero.nome = nameController.text;
-                    print(hero.hp);
+                    att.classeGuerreiro();
+                    att.nome = nameController.text;
+                    print(att.hp);
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -66,8 +68,8 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                     backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                   ),
                   onPressed: () {
-                    hero.classeMago();
-                    hero.nome = nameController.text;
+                    att.classeMago();
+                    att.nome = nameController.text;
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -93,8 +95,8 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                   ),
                   onPressed: () {
                     Heros hero = Heros();
-                    hero.classeRogue();
-                    hero.nome = nameController.text;
+                    att.classeRogue();
+                    att.nome = nameController.text;
                     Navigator.push(
                         context,
                         MaterialPageRoute(
