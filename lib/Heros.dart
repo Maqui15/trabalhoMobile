@@ -7,7 +7,7 @@ import 'package:jogo_mobile/monster.dart';
 import 'dados.dart';
 
 class Heros {
-  var nome = '';
+  var nome;
   var hp;
   var mana;
   var str;
@@ -15,41 +15,39 @@ class Heros {
   var dex;
   var endu;
   var level = 1;
-  var classeEscolhida = 'df';
+  late final String classeEscolhida;
   List classes = ['Guerreiro', 'Mago', 'Rogue'];
 
   Heros();
 
-  //Monster monster = Monster(0, 0, 0, Image.asset(''));
+  void classeGuerreiro() {
+    str = 20;
+    intel = 5;
+    dex = 8;
+    endu = 14;
+    hp = 100;
+    mana = 100;
+    classeEscolhida = classes[0];
+  }
 
-  void escolhaClasse(var classe) {
-    if (classes.elementAt(0) == classe) {
-      str = 20;
-      intel = 5;
-      dex = 8;
-      endu = 14;
-      hp = 100;
-      mana = 100;
-      classeEscolhida = classe[0];
-    }
-    if (classes.elementAt(1) == classe) {
-      intel = 20;
-      str = 5;
-      dex = 11;
-      endu = 5;
-      hp = 100;
-      mana = 100;
-      classeEscolhida = classe[1];
-    }
-    if (classes.elementAt(2) == classe) {
-      dex = 20;
-      intel = 12;
-      str = 10;
-      endu = 8;
-      hp = 100;
-      mana = 100;
-      classeEscolhida = classe[2];
-    }
+  void classeMago() {
+    intel = 20;
+    str = 5;
+    dex = 11;
+    endu = 5;
+    hp = 100;
+    mana = 100;
+    classeEscolhida = classes[1];
+  }
+
+  void classeRogue() {
+    dex = 20;
+    intel = 12;
+    str = 10;
+    endu = 8;
+    hp = 100;
+    mana = 100;
+    classeEscolhida = classes[2];
   }
 
   int skillsGuerreiro(int skill) {
