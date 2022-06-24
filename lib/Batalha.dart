@@ -1,11 +1,11 @@
 // ignore_for_file: avoid_print
-
 import 'dart:io';
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:jogo_mobile/Heros.dart';
 import 'package:jogo_mobile/dados.dart';
 import 'package:jogo_mobile/monster.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Batalha {
   Heros hero = Heros();
@@ -36,16 +36,18 @@ class Batalha {
     return result;
   }
 
-  void batalhar(var skillH) {
+  void batalhar(var skillH) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     int dmgH = 0;
+    String? classe = prefs.getString('classeEscolhida');
     var duration = const Duration(seconds: 3);
-    print(hero.classeEscolhida);
-    print('teste');
+    //print(hero.classeEscolhida);
+    //print('teste');
     print(hero.hp);
     switch (hero.classeEscolhida) {
       case 'Guerreiro':
         dmgH = hero.skillsGuerreiro(skillH);
-        print(dmgH);
+        print(classe);
         break;
       case 'Mago':
         dmgH = hero.skillsMago(skillH);
