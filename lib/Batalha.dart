@@ -41,7 +41,6 @@ class Batalha {
   void batalhar(var skillH) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     int dmgH = 0;
-    int? hp = prefs.getInt('hp');
     var duration = const Duration(seconds: 3);
     //print(hero.classeEscolhida);
     //print('teste');

@@ -12,7 +12,6 @@ class EscolhaDeClasse extends StatefulWidget {
 }
 
 class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
-  Heros hero = Heros();
   Atributos att = Atributos();
   @override
   Widget build(BuildContext context) {

@@ -113,6 +113,8 @@ class _Batalha1State extends State<Batalha1> {
                     onPressed: () {
                       b.batalhar(1);
                       print(att.hp);
+                      print(att.nome);
+                      print(att.str);
                     },
                     child: const Text('Teste')),
               ),
