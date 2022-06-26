@@ -2,15 +2,14 @@
 import 'dart:core';
 
 import 'package:jogo_mobile/Atributos.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Heros {
   Heros();
 
   Atributos att = Atributos();
 
-  int skillsGuerreiro(int skill) {
-    int dano = 0;
+  double skillsGuerreiro(double skill) {
+    double dano = 0;
     for (var i = 0; i <= att.str; i += 3) {
       dano += 1;
       att.hp += 7;
@@ -30,8 +29,8 @@ class Heros {
     return dano;
   }
 
-  int skillsMago(int skill) {
-    int dano = 0;
+  double skillsMago(double skill) {
+    double dano = 0;
     for (var i = 0; i <= att.intel; i += 2) {
       dano += 1;
     }
@@ -50,8 +49,8 @@ class Heros {
     return dano;
   }
 
-  int skillsRogue(int skill) {
-    int dano = 0;
+  double skillsRogue(double skill) {
+    double dano = 0;
     for (var i = 0; i <= att.dex; i += 1) {
       dano += 1;
       att.hp += 5;

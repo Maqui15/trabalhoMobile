@@ -18,7 +18,7 @@ class Atributos {
   List classes = ['Guerreiro', 'Mago', 'Rogue'];
 
   Atributos() {
-    _startAtts();
+    //_startAtts();
   }
 
   _startAtts() async {
