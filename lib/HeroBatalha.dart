@@ -1,41 +1,14 @@
 // ignore_for_file: avoid_print, file_names, prefer_typing_uninitialized_variables, unused_local_variable
 import 'dart:math';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:jogo_mobile/Atributos.dart';
 import 'package:jogo_mobile/dados.dart';
-import 'package:jogo_mobile/monster.dart';
 import 'package:jogo_mobile/telas/TelaVitoria.dart';
 
 class HeroBatalha {
   Dados dado = Dados();
-  Monster monster = Monster(0, 0, 0, '');
   HeroBatalha();
   Atributos att = Atributos();
   TelaVitoria tv = const TelaVitoria();
-
-  List<Monster> monstroEncouter = [
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-    Monster(150, 16, 26, 'monstro.gif'),
-  ];
 
   bool confronto() {
     Dados dado = Dados();
@@ -62,8 +35,6 @@ class HeroBatalha {
     switch (att.classeEscolhida) {
       case 'Guerreiro':
         dmgH = skillsGuerreiro(skillH);
-        print(dmgH);
-        print(att.hp);
         break;
       case 'Mago':
         dmgH = skillsMago(skillH);
@@ -82,7 +53,7 @@ class HeroBatalha {
   }
 
   void monsterATK() {
-    monster.skilsMonster(Random().nextInt(1));
+    skilsMonster(Random().nextInt(1));
     if (confronto()) {
       att.hp -= att.monsterDmg * (att.endu / 100);
     } else {
@@ -108,7 +79,6 @@ class HeroBatalha {
       dano += 30;
       att.mana -= 20;
     }
-
     return dano;
   }
 
@@ -152,6 +122,16 @@ class HeroBatalha {
       att.mana -= 20;
     }
     return dano;
+  }
+
+  num skilsMonster(var skill) {
+    if (skill == 0) {
+      att.monsterDmg += 5;
+    }
+    if (skill == 1) {
+      att.monsterDmg += 12;
+    }
+    return att.monsterDmg;
   }
 
   void levelUp(int status) {

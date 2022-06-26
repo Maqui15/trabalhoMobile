@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:jogo_mobile/Atributos.dart';
 import 'package:jogo_mobile/HeroBatalha.dart';
-import 'package:jogo_mobile/monster.dart';
 import 'package:jogo_mobile/telas/Inicial.dart';
 
 import 'TelaVitoria.dart';
@@ -20,9 +19,10 @@ class Batalha1 extends StatefulWidget {
 class _Batalha1State extends State<Batalha1> {
   HeroBatalha b = HeroBatalha();
   Atributos att = Atributos();
-  double atk = 0;
+  double monsterHP = 100;
+  double hP = 100;
+  double mana = 100;
   var duration = const Duration(milliseconds: 1);
-  Monster monster = Monster(0, 0, 0, '');
 
   Widget char() {
     return Container(
@@ -32,7 +32,7 @@ class _Batalha1State extends State<Batalha1> {
         child: AnimatedPadding(
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOutExpo,
-          padding: EdgeInsets.only(left: atk),
+          padding: const EdgeInsets.only(left: 0),
           child: Row(
             children: [
               Image.asset(
@@ -53,7 +53,7 @@ class _Batalha1State extends State<Batalha1> {
         child: AnimatedPadding(
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOutExpo,
-          padding: EdgeInsets.only(left: atk),
+          padding: const EdgeInsets.only(left: 0),
           child: Row(
             children: [
               Image.asset(
@@ -67,7 +67,12 @@ class _Batalha1State extends State<Batalha1> {
   }
 
   void ataque() {
-    setState(() {});
+    setState(() {
+      att.getAtts();
+      monsterHP = att.monsterHp as double;
+      hP = att.hp as double;
+      mana = att.mana as double;
+    });
   }
 
   Future<void> alerta() async {
@@ -108,11 +113,12 @@ class _Batalha1State extends State<Batalha1> {
                   fit: BoxFit.cover)),
           child: Column(
             children: [
-              const LinearProgressIndicator(
+              LinearProgressIndicator(
                 backgroundColor: Colors.white,
-                valueColor: AlwaysStoppedAnimation(Colors.red),
+                valueColor: const AlwaysStoppedAnimation(Colors.red),
                 minHeight: 18,
-                value: 100,
+                value: monsterHP,
+                semanticsValue: monsterHP.toString(),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -135,21 +141,23 @@ class _Batalha1State extends State<Batalha1> {
               Container(
                 width: 350,
                 margin: const EdgeInsets.only(top: 10),
-                child: const LinearProgressIndicator(
-                  backgroundColor: Colors.red,
-                  valueColor: AlwaysStoppedAnimation(Colors.green),
+                child: LinearProgressIndicator(
+                  backgroundColor: Colors.white,
+                  valueColor: const AlwaysStoppedAnimation(Colors.green),
                   minHeight: 18,
-                  value: 100,
+                  value: hP,
+                  semanticsValue: hP.toString(),
                 ),
               ),
               Container(
                 width: 350,
                 margin: const EdgeInsets.all(10),
-                child: const LinearProgressIndicator(
-                  backgroundColor: Colors.red,
-                  valueColor: AlwaysStoppedAnimation(Colors.blue),
+                child: LinearProgressIndicator(
+                  backgroundColor: Colors.white,
+                  valueColor: const AlwaysStoppedAnimation(Colors.blue),
                   minHeight: 18,
-                  value: 100,
+                  value: mana,
+                  semanticsValue: mana.toString(),
                 ),
               ),
               Container(
@@ -167,6 +175,7 @@ class _Batalha1State extends State<Batalha1> {
                     onPressed: () {
                       b.batalhar(1);
                       att.getAtts();
+                      ataque();
                       if (att.monsterHp <= 0) {
                         alerta();
                       } else {
@@ -199,6 +208,7 @@ class _Batalha1State extends State<Batalha1> {
                     onPressed: () {
                       b.batalhar(2);
                       att.getAtts();
+                      ataque();
                       if (att.monsterHp <= 0) {
                         alerta();
                       } else {
@@ -230,6 +240,7 @@ class _Batalha1State extends State<Batalha1> {
                     onPressed: () {
                       b.batalhar(3);
                       att.getAtts();
+                      ataque();
                       if (att.monsterHp <= 0) {
                         alerta();
                       } else {

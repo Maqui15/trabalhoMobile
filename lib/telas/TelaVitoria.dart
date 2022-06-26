@@ -1,7 +1,6 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class TelaVitoria extends StatelessWidget {
   const TelaVitoria({Key? key}) : super(key: key);
@@ -9,7 +8,7 @@ class TelaVitoria extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: 600,
         child: Column(
@@ -19,7 +18,7 @@ class TelaVitoria extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('Voltar')),
+                child: const Text('Voltar')),
           ],
         ),
       ),

@@ -1,7 +1,8 @@
+// ignore_for_file: file_names
+
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:jogo_mobile/telas/EscolhaDeClasse.dart';
 
 class Atributos {
   String nome = '';
@@ -13,6 +14,7 @@ class Atributos {
   num endu = 0;
   num level = 1;
   String classeEscolhida = '';
+  String heroImagem = '';
   num monsterHp = 0;
   num monsterDmg = 0;
   num monsterEndu = 0;
@@ -36,12 +38,12 @@ class Atributos {
           'endu': endu,
           'level': level,
           'classeEscolhida': classeEscolhida,
+          'HeroImagem': heroImagem,
           'monsterHp': monsterHp,
           'monsterDmg': monsterDmg,
           'monsterEndu': monsterEndu,
           'monsterImagem': monsterImagem,
         }));
-    //final id = jsonDecode(response.body)['name'];
   }
 
   Future<void> getAtts() async {
@@ -57,6 +59,7 @@ class Atributos {
     endu = data['endu'];
     level = data['level'];
     classeEscolhida = data['classeEscolhida'];
+    heroImagem = data['heroImagem'];
     monsterHp = data['monsterHp'];
     monsterDmg = data['monsterDmg'];
     monsterEndu = data['monsterEndu'];
@@ -71,6 +74,7 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(0);
+    heroImagem = '';
     monsterHp = 0;
     monsterDmg = 0;
     monsterEndu = 0;
@@ -87,6 +91,7 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(1);
+    heroImagem = '';
     monsterHp = 0;
     monsterDmg = 0;
     monsterEndu = 0;
@@ -103,12 +108,44 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(2);
+    heroImagem = '';
     monsterHp = 0;
     monsterDmg = 0;
     monsterEndu = 0;
     monsterImagem = '';
     setAtts();
   }
+
+  Future<void> setMonster() async {
+    await http.patch(Uri.parse('$_url/-N5Va2jlscz9D71hFdd2.json'),
+        body: jsonEncode({
+          'monsterHp': monsterHp,
+          'monsterDmg': monsterDmg,
+          'monsterEndu': monsterEndu,
+          'monsterImagem': monsterImagem,
+        }));
+  }
+
+  /*final monstros = List monstroEncouter; = [
+    [
+      Atributos().monsterDmg = 10,
+      Atributos().monsterHp = 100,
+      Atributos().monsterEndu = 10,
+      Atributos().monsterImagem = ''
+    ],
+    [
+      Atributos().monsterDmg = 10,
+      Atributos().monsterHp = 100,
+      Atributos().monsterEndu = 10,
+      Atributos().monsterImagem = ''
+    ],
+    [
+      Atributos().monsterDmg = 10,
+      Atributos().monsterHp = 100,
+      Atributos().monsterEndu = 10,
+      Atributos().monsterImagem = ''
+    ]
+  ];*/
 
   /*Atributos.fromJson(Map<String, dynamic> json) {
     nome = json['nome'];
