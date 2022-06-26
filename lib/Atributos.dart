@@ -1,51 +1,69 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+import 'package:jogo_mobile/telas/EscolhaDeClasse.dart';
 
 class Atributos {
-  late SharedPreferences _prefs;
-  var nome;
-  var hp;
-  var mana;
-  var str;
-  var intel;
-  var dex;
-  var endu;
-  var level;
-  var classeEscolhida;
-  var monsterHp;
-  var monsterDmg;
-  var monsterEndu;
-  var monsterImagem;
+  String nome = '';
+  num hp = 0;
+  num mana = 0;
+  num str = 0;
+  num intel = 0;
+  num dex = 0;
+  num endu = 0;
+  num level = 1;
+  String classeEscolhida = '';
+  num monsterHp = 0;
+  num monsterDmg = 0;
+  num monsterEndu = 0;
+  String monsterImagem = '';
   List classes = ['Guerreiro', 'Mago', 'Rogue'];
+  final _url = 'https://rpgzin-203ba-default-rtdb.firebaseio.com/atributos';
 
   Atributos() {
-    //_startAtts();
+    getAtts();
   }
 
-  _startAtts() async {
-    await _startAtributos();
-    await _readAtrubutos();
+  Future<void> setAtts() async {
+    await http.patch(Uri.parse('$_url/-N5Va2jlscz9D71hFdd2.json'),
+        body: jsonEncode({
+          'nome': nome,
+          'hp ': hp,
+          'mana': mana,
+          'str': str,
+          'intel': intel,
+          'dex': dex,
+          'endu': endu,
+          'level': level,
+          'classeEscolhida': classeEscolhida,
+          'monsterHp': monsterHp,
+          'monsterDmg': monsterDmg,
+          'monsterEndu': monsterEndu,
+          'monsterImagem': monsterImagem,
+        }));
+    //final id = jsonDecode(response.body)['name'];
   }
 
-  Future<void> _startAtributos() async {
-    _prefs = await SharedPreferences.getInstance();
+  Future<void> getAtts() async {
+    final response =
+        await http.get(Uri.parse('$_url/-N5Va2jlscz9D71hFdd2.json'));
+    final Map<String, dynamic> data = jsonDecode(response.body);
+    nome = data['nome'];
+    hp = data['hp'];
+    mana = data['mana'];
+    str = data['str'];
+    intel = data['intel'];
+    dex = data['dex'];
+    endu = data['endu'];
+    level = data['level'];
+    classeEscolhida = data['classeEscolhida'];
+    monsterHp = data['monsterHp'];
+    monsterDmg = data['monsterDmg'];
+    monsterEndu = data['monsterEndu'];
   }
 
-  _readAtrubutos() async {
-    nome = _prefs.getString('nome');
-    hp = _prefs.getInt('hp');
-    mana = _prefs.getInt('mana');
-    str = _prefs.getInt('str');
-    intel = _prefs.getInt('intel');
-    dex = _prefs.getInt('dex');
-    endu = _prefs.getInt('endu');
-    level = _prefs.getInt('level');
-    classeEscolhida = _prefs.getString('classeEcolhida');
-    monsterHp = _prefs.getInt('monsterHp');
-    monsterDmg = _prefs.getInt('monsterDmg');
-    monsterEndu = _prefs.getInt('monsterEndu');
-  }
-
-  void classeGuerreiro() async {
+  void classeGuerreiro(String name) {
+    nome = name;
     str = 20;
     intel = 5;
     dex = 8;
@@ -53,17 +71,15 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(0);
-    await _prefs.setInt('hp', hp);
-    await _prefs.setInt('intel', intel);
-    await _prefs.setInt('dex', dex);
-    await _prefs.setInt('endu', endu);
-    await _prefs.setInt('mana', mana);
-    await _prefs.setInt('level', level);
-    await _prefs.setString('classeEscolhida', classeEscolhida);
-    await _prefs.setString('nome', nome);
+    monsterHp = 0;
+    monsterDmg = 0;
+    monsterEndu = 0;
+    monsterImagem = '';
+    setAtts();
   }
 
-  void classeMago() async {
+  void classeMago(String name) {
+    nome = name;
     intel = 20;
     str = 5;
     dex = 11;
@@ -71,17 +87,15 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(1);
-    await _prefs.setInt('hp', hp);
-    await _prefs.setInt('intel', intel);
-    await _prefs.setInt('dex', dex);
-    await _prefs.setInt('endu', endu);
-    await _prefs.setInt('mana', mana);
-    await _prefs.setInt('level', level);
-    await _prefs.setString('classeEscolhida', classeEscolhida);
-    await _prefs.setString('nome', nome);
+    monsterHp = 0;
+    monsterDmg = 0;
+    monsterEndu = 0;
+    monsterImagem = '';
+    setAtts();
   }
 
-  void classeRogue() async {
+  void classeRogue(String name) {
+    nome = name;
     dex = 20;
     intel = 12;
     str = 10;
@@ -89,13 +103,43 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(2);
-    await _prefs.setInt('hp', hp);
-    await _prefs.setInt('intel', intel);
-    await _prefs.setInt('dex', dex);
-    await _prefs.setInt('endu', endu);
-    await _prefs.setInt('mana', mana);
-    await _prefs.setInt('level', level);
-    await _prefs.setString('classeEscolhida', classeEscolhida);
-    await _prefs.setString('nome', nome);
+    monsterHp = 0;
+    monsterDmg = 0;
+    monsterEndu = 0;
+    monsterImagem = '';
+    setAtts();
   }
+
+  /*Atributos.fromJson(Map<String, dynamic> json) {
+    nome = json['nome'];
+    hp = json['hp'];
+    mana = json['mana'];
+    str = json['str'];
+    intel = json['intel'];
+    dex = json['dex'];
+    endu = json['endu'];
+    level = json['level'];
+    classeEscolhida = json['classeEscolhida'];
+    monsterHp = json['monsterHp'];
+    monsterDmg = json['monsterDmg'];
+    monsterEndu = json['monsterEndu'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['nome'] = this.nome;
+    data['hp'] = this.hp;
+    data['mana'] = this.mana;
+    data['str'] = this.str;
+    data['intel'] = this.intel;
+    data['dex'] = this.dex;
+    data['endu'] = this.endu;
+    data['level'] = this.level;
+    data['classeEscolhida'] = this.classeEscolhida;
+    data['monsterHp'] = this.monsterHp;
+    data['monsterDmg'] = this.monsterDmg;
+    data['monsterEndu'] = this.monsterEndu;
+    return data;
+  }*/
+
 }

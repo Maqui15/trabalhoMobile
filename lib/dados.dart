@@ -1,18 +1,14 @@
 import 'dart:math';
 
 class Dados {
-  var d20 = 0;
-  var d6 = 0;
-  var d12 = 0;
-  var heroi = 0;
-  var monstro = 0;
+  var d20;
+  var d6;
+  var d12;
 
   Dados() {
-    d20 = 0;
-    d6 = 0;
-    d12 = 0;
-    heroi = 0;
-    monstro = 0;
+    d20 = rowD20();
+    d6 = rowD6();
+    d12 = rowD12();
   }
 
   int rowD20() {

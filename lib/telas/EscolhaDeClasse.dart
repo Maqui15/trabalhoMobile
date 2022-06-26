@@ -1,7 +1,6 @@
 // ignore_for_file: file_names, avoid_print
 import 'package:flutter/material.dart';
 import '../Atributos.dart';
-import '../Heros.dart';
 import 'TelaBatalha.dart';
 
 class EscolhaDeClasse extends StatefulWidget {
@@ -13,10 +12,9 @@ class EscolhaDeClasse extends StatefulWidget {
 
 class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
   Atributos att = Atributos();
+  final nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final nameController = TextEditingController();
-
     return Scaffold(
       body: Container(
         color: Colors.black,
@@ -40,9 +38,8 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                     backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                   ),
                   onPressed: () {
-                    att.classeGuerreiro();
-                    att.nome = nameController.text;
-                    print(att.hp);
+                    String nome = nameController.text;
+                    att.classeGuerreiro(nome);
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -67,8 +64,8 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                     backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                   ),
                   onPressed: () {
-                    att.classeMago();
-                    att.nome = nameController.text;
+                    String nome = nameController.text;
+                    att.classeMago(nome);
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -93,9 +90,8 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                     backgroundColor: const Color.fromARGB(120, 158, 158, 158),
                   ),
                   onPressed: () {
-                    Heros hero = Heros();
-                    att.classeRogue();
-                    att.nome = nameController.text;
+                    String nome = nameController.text;
+                    att.classeRogue(nome);
                     Navigator.push(
                         context,
                         MaterialPageRoute(

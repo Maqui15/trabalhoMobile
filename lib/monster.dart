@@ -7,14 +7,14 @@ import 'package:jogo_mobile/Atributos.dart';
 class Monster {
   Atributos att = Atributos();
 
-  Monster(var hp, var dmg, var endu, var image) {
+  Monster(num hp, num dmg, num endu, String image) {
     att.monsterHp = hp;
     att.monsterDmg = dmg;
     att.monsterEndu = endu;
     att.monsterImagem = image;
   }
 
-  int skilsMonster(var skill) {
+  num skilsMonster(var skill) {
     if (skill == 0) {
       att.monsterDmg += 5;
     }

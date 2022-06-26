@@ -1,13 +1,10 @@
 // ignore_for_file: file_names, avoid_print
 
 import 'dart:io';
-import 'dart:math';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:jogo_mobile/Atributos.dart';
-import 'package:jogo_mobile/Batalha.dart';
-import 'package:jogo_mobile/Heros.dart';
+import 'package:jogo_mobile/HeroBatalha.dart';
 import 'package:jogo_mobile/monster.dart';
 import 'package:jogo_mobile/telas/Inicial.dart';
 
@@ -21,12 +18,11 @@ class Batalha1 extends StatefulWidget {
 }
 
 class _Batalha1State extends State<Batalha1> {
-  Heros hero = Heros();
-  Batalha b = Batalha();
+  HeroBatalha b = HeroBatalha();
   Atributos att = Atributos();
   double atk = 0;
-  var duration = Duration(milliseconds: 1);
-  Monster monster = Monster(0, 0, 0, Image.asset(''));
+  var duration = const Duration(milliseconds: 1);
+  Monster monster = Monster(0, 0, 0, '');
 
   Widget char() {
     return Container(
@@ -34,7 +30,7 @@ class _Batalha1State extends State<Batalha1> {
         height: 210,
         width: 170,
         child: AnimatedPadding(
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOutExpo,
           padding: EdgeInsets.only(left: atk),
           child: Row(
@@ -55,7 +51,7 @@ class _Batalha1State extends State<Batalha1> {
         height: 210,
         width: 170,
         child: AnimatedPadding(
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOutExpo,
           padding: EdgeInsets.only(left: atk),
           child: Row(
@@ -70,12 +66,30 @@ class _Batalha1State extends State<Batalha1> {
         ));
   }
 
-  /* void ataque() {
-    setState(() async {
-      atk = 20;
-      //atk == 0 ? atk = 50 : atk = 0;
-    });
-  }*/
+  void ataque() {
+    setState(() {});
+  }
+
+  Future<void> alerta() async {
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Vitória!'),
+            content: const Text('Seguir para a proxima sala'),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TelaVitoria()));
+                  },
+                  child: const Text('Proximo')),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -121,9 +135,9 @@ class _Batalha1State extends State<Batalha1> {
               Container(
                 width: 350,
                 margin: const EdgeInsets.only(top: 10),
-                child: LinearProgressIndicator(
+                child: const LinearProgressIndicator(
                   backgroundColor: Colors.red,
-                  valueColor: const AlwaysStoppedAnimation(Colors.green),
+                  valueColor: AlwaysStoppedAnimation(Colors.green),
                   minHeight: 18,
                   value: 100,
                 ),
@@ -131,9 +145,9 @@ class _Batalha1State extends State<Batalha1> {
               Container(
                 width: 350,
                 margin: const EdgeInsets.all(10),
-                child: LinearProgressIndicator(
+                child: const LinearProgressIndicator(
                   backgroundColor: Colors.red,
-                  valueColor: const AlwaysStoppedAnimation(Colors.blue),
+                  valueColor: AlwaysStoppedAnimation(Colors.blue),
                   minHeight: 18,
                   value: 100,
                 ),
@@ -152,11 +166,9 @@ class _Batalha1State extends State<Batalha1> {
                     ),
                     onPressed: () {
                       b.batalhar(1);
+                      att.getAtts();
                       if (att.monsterHp <= 0) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const TelaVitoria()));
+                        alerta();
                       } else {
                         sleep(duration);
                         b.monsterATK();
@@ -183,14 +195,12 @@ class _Batalha1State extends State<Batalha1> {
                       textStyle: const TextStyle(fontSize: 14),
                       backgroundColor: const Color.fromARGB(120, 235, 233, 233),
                     ),
-                    child: Text('Skill 2'),
+                    child: const Text('Skill 2'),
                     onPressed: () {
                       b.batalhar(2);
+                      att.getAtts();
                       if (att.monsterHp <= 0) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const TelaVitoria()));
+                        alerta();
                       } else {
                         sleep(duration);
                         b.monsterATK();
@@ -216,14 +226,12 @@ class _Batalha1State extends State<Batalha1> {
                       textStyle: const TextStyle(fontSize: 14),
                       backgroundColor: const Color.fromARGB(120, 235, 233, 233),
                     ),
-                    child: Text('Skill 3'),
+                    child: const Text('Skill 3'),
                     onPressed: () {
                       b.batalhar(3);
+                      att.getAtts();
                       if (att.monsterHp <= 0) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const TelaVitoria()));
+                        alerta();
                       } else {
                         sleep(duration);
                         b.monsterATK();
