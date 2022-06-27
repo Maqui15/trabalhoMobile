@@ -23,7 +23,7 @@ class _Batalha1State extends State<Batalha1> {
   num? hP;
   num? mana;
   String nome = '';
-  String hero = '';
+  String imagem = '';
 
   @override
   void initState() {
@@ -34,6 +34,7 @@ class _Batalha1State extends State<Batalha1> {
     hP = att.hp;
     mana = att.mana;
     nome = att.nome;
+    imagem = att.heroImagem;
   }
 
   Widget char() {
@@ -47,8 +48,8 @@ class _Batalha1State extends State<Batalha1> {
           padding: const EdgeInsets.only(left: 0),
           child: Row(
             children: [
-              Image.network(
-                att.heroImagem,
+              Image.asset(
+                'lib/images/mago.png',
                 width: 150,
                 height: 200,
               )

@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class Atributos {
@@ -54,7 +55,6 @@ class Atributos {
           'endu': endu,
           'level': level,
           'classeEscolhida': classeEscolhida,
-          'heroImagem': heroImagem,
           'monsterHp': monsterHp,
           'monsterDmg': monsterDmg,
           'monsterEndu': monsterEndu,
@@ -87,7 +87,6 @@ class Atributos {
     endu = data['endu'];
     level = data['level'];
     classeEscolhida = data['classeEscolhida'];
-    heroImagem = data['heroImagem'];
     monsterHp = data['monsterHp'];
     monsterDmg = data['monsterDmg'];
     monsterEndu = data['monsterEndu'];
@@ -102,8 +101,7 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(0);
-    heroImagem =
-        'https://drive.google.com/uc?export=view&id=1pMUMmkImFDcyFo1MCjvpAKIgJzwNo2PY';
+    heroImagem = 'lib/images/mago.png';
     await setAtts();
   }
 
@@ -116,8 +114,7 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(1);
-    heroImagem =
-        'https://drive.google.com/uc?export=view&id=1bFdKfLkxO16LpldfZh__uC9BrsO2gSlZ';
+    heroImagem = 'lib/images/mago.png';
     await setAtts();
   }
 
@@ -135,8 +132,8 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(2);
-    heroImagem =
-        'https://drive.google.com/uc?export=view&id=10eXeHcbLj3JPBGncVW4TfaYDmx4nWL56';
+    heroImagem = 'lib/images/mago.png';
+    // 'https://drive.google.com/uc?export=view&id=10eXeHcbLj3JPBGncVW4TfaYDmx4nWL56';
     await setAtts();
   }
 

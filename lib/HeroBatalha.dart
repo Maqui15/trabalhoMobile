@@ -51,6 +51,7 @@ class HeroBatalha {
     }
     att.setHero();
     att.setMonster();
+    att.getAtts();
   }
 
   void monsterATK() {
@@ -67,10 +68,10 @@ class HeroBatalha {
     num dano = 0;
     for (var i = 0; i <= att.str; i += 3) {
       dano += 2;
-      att.hp += 7;
     }
     if (skill == 1) {
       dano += 16;
+      att.hp += 7;
     }
     if (skill == 2) {
       dano += 21;
@@ -107,10 +108,11 @@ class HeroBatalha {
     num dano = 0;
     for (var i = 0; i <= att.dex; i += 1) {
       dano += 2;
-      att.hp += 5;
     }
     if (skill == 1) {
       dano += 19;
+      att.hp += 5;
+      att.mana += 5;
     }
     if (skill == 2) {
       dano += 23;
