@@ -17,9 +17,9 @@ class HeroBatalha {
 
     int dadoAtaque = dado.rowD20();
     if (att.classeEscolhida == 'Rogue') {
-      dadoDefesa == dado.rowD20();
+      dadoDefesa == dado.rowD12();
     } else {
-      dadoDefesa = dado.rowD12();
+      dadoDefesa = dado.rowD6();
     }
     if (dadoAtaque >= dadoDefesa) {
       result = true;
@@ -29,8 +29,7 @@ class HeroBatalha {
     return result;
   }
 
-  void batalhar(int skillH) async {
-    att.getAtts();
+  void batalhar(int skillH) {
     num dmgH = 0;
     switch (att.classeEscolhida) {
       case 'Guerreiro':
@@ -46,26 +45,28 @@ class HeroBatalha {
         null;
     }
     if (confronto()) {
-      att.monsterHp -= dmgH * (att.monsterEndu / 100);
+      att.monsterHp -= dmgH - att.monsterEndu;
     } else {
       null;
     }
+    att.setHero();
+    att.setMonster();
   }
 
   void monsterATK() {
     skilsMonster(Random().nextInt(1));
     if (confronto()) {
-      att.hp -= att.monsterDmg * (att.endu / 100);
+      att.hp -= att.monsterDmg - att.endu;
+      att.setAtts();
     } else {
       null;
     }
   }
 
   num skillsGuerreiro(int skill) {
-    att.getAtts();
     num dano = 0;
     for (var i = 0; i <= att.str; i += 3) {
-      dano += 1;
+      dano += 2;
       att.hp += 7;
     }
     if (skill == 1) {
@@ -83,14 +84,13 @@ class HeroBatalha {
   }
 
   num skillsMago(int skill) {
-    att.getAtts();
     num dano = 0;
     for (var i = 0; i <= att.intel; i += 2) {
-      dano += 1;
+      dano += 2;
     }
     if (skill == 1) {
       dano += 10;
-      att.mana += 5;
+      att.mana += 10;
     }
     if (skill == 2) {
       dano += 30;
@@ -104,10 +104,9 @@ class HeroBatalha {
   }
 
   num skillsRogue(int skill) {
-    att.getAtts();
     num dano = 0;
     for (var i = 0; i <= att.dex; i += 1) {
-      dano += 1;
+      dano += 2;
       att.hp += 5;
     }
     if (skill == 1) {
@@ -126,10 +125,10 @@ class HeroBatalha {
 
   num skilsMonster(var skill) {
     if (skill == 0) {
-      att.monsterDmg += 5;
+      att.monsterDmg += 30;
     }
     if (skill == 1) {
-      att.monsterDmg += 12;
+      att.monsterDmg += 50;
     }
     return att.monsterDmg;
   }

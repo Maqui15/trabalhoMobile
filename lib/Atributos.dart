@@ -1,13 +1,14 @@
 // ignore_for_file: file_names
 
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:http/http.dart' as http;
 
 class Atributos {
   String nome = '';
-  num hp = 0;
-  num mana = 0;
+  num hp = 100;
+  num mana = 100;
   num str = 0;
   num intel = 0;
   num dex = 0;
@@ -20,17 +21,32 @@ class Atributos {
   num monsterEndu = 0;
   String monsterImagem = '';
   List classes = ['Guerreiro', 'Mago', 'Rogue'];
-  final _url = 'https://rpgzin-203ba-default-rtdb.firebaseio.com/atributos';
+  List monstros = [
+    'https://drive.google.com/uc?export=view&id=1aDSDukTGUuZWC3gOmK86T-FPrlbFMSsr',
+    'https://drive.google.com/uc?export=view&id=1IYetQktXGSh_hSs_vWT2zgMhDYMf9RU2',
+    'https://drive.google.com/uc?export=view&id=1Zwhrjlu9bxO0DFWdv0iSnQr4vDG-lYYs',
+    'https://drive.google.com/uc?export=view&id=1zG8KnZCOTviJROdRCM8sKbB5s5xMYWKZ',
+    'https://drive.google.com/uc?export=view&id=15LF4hw65zvWgo348DTzBc7J3CzyWMycH',
+    'https://drive.google.com/uc?export=view&id=11gOitq6-0b3roqGE5fdEtTBUEs_POP8v',
+    'https://drive.google.com/uc?export=view&id=11lBMiCeBndrRW8I2A9VbddhtFCS550sJ',
+    'https://drive.google.com/uc?export=view&id=1TX_wthmVSLrs7jTnIJI9--gp7NpSeKmg',
+    'https://drive.google.com/uc?export=view&id=1vWP14Jq1WHG1hvqozXtOY9lq-Bxjzjs2',
+    'https://drive.google.com/uc?export=view&id=178FO3bN28Rao9puKovpY9Yr27eBrii_K',
+    'https://drive.google.com/uc?export=view&id=1s0qWOzKmvxWdyH7z5W-4YgabS_GXyV0h',
+    'https://drive.google.com/uc?export=view&id=10CsqXP3iL73pP49M2uNwPk-G0EO5dDYv',
+  ];
+  final _url =
+      'https://rpgzin-203ba-default-rtdb.firebaseio.com/atributos/-N5Va2jlscz9D71hFdd2.json';
 
   Atributos() {
     getAtts();
   }
 
   Future<void> setAtts() async {
-    await http.patch(Uri.parse('$_url/-N5Va2jlscz9D71hFdd2.json'),
+    await http.patch(Uri.parse('$_url'),
         body: jsonEncode({
           'nome': nome,
-          'hp ': hp,
+          'hp': hp,
           'mana': mana,
           'str': str,
           'intel': intel,
@@ -46,10 +62,22 @@ class Atributos {
         }));
   }
 
+  Future<void> setHero() async {
+    await http.patch(Uri.parse('$_url'),
+        body: jsonEncode({
+          'hp': hp,
+          'mana': mana,
+          'str': str,
+          'intel': intel,
+          'dex': dex,
+          'endu': endu,
+          'level': level,
+        }));
+  }
+
   Future<void> getAtts() async {
-    final response =
-        await http.get(Uri.parse('$_url/-N5Va2jlscz9D71hFdd2.json'));
-    final Map<String, dynamic> data = jsonDecode(response.body);
+    final response = await http.get(Uri.parse('$_url'));
+    Map<String, dynamic> data = jsonDecode(response.body);
     nome = data['nome'];
     hp = data['hp'];
     mana = data['mana'];
@@ -65,7 +93,7 @@ class Atributos {
     monsterEndu = data['monsterEndu'];
   }
 
-  void classeGuerreiro(String name) {
+  void classeGuerreiro(String name) async {
     nome = name;
     str = 20;
     intel = 5;
@@ -74,15 +102,12 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(0);
-    heroImagem = '';
-    monsterHp = 0;
-    monsterDmg = 0;
-    monsterEndu = 0;
-    monsterImagem = '';
-    setAtts();
+    heroImagem =
+        'https://drive.google.com/uc?export=view&id=1pMUMmkImFDcyFo1MCjvpAKIgJzwNo2PY';
+    await setAtts();
   }
 
-  void classeMago(String name) {
+  void classeMago(String name) async {
     nome = name;
     intel = 20;
     str = 5;
@@ -91,15 +116,17 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(1);
-    heroImagem = '';
-    monsterHp = 0;
-    monsterDmg = 0;
-    monsterEndu = 0;
-    monsterImagem = '';
-    setAtts();
+    heroImagem =
+        'https://drive.google.com/uc?export=view&id=1bFdKfLkxO16LpldfZh__uC9BrsO2gSlZ';
+    await setAtts();
   }
 
-  void classeRogue(String name) {
+  void reload() async {
+    await setAtts();
+    await getAtts();
+  }
+
+  void classeRogue(String name) async {
     nome = name;
     dex = 20;
     intel = 12;
@@ -109,21 +136,28 @@ class Atributos {
     mana = 100;
     classeEscolhida = classes.elementAt(2);
     heroImagem = '';
-    monsterHp = 0;
-    monsterDmg = 0;
-    monsterEndu = 0;
-    monsterImagem = '';
-    setAtts();
+    await setAtts();
   }
 
   Future<void> setMonster() async {
-    await http.patch(Uri.parse('$_url/-N5Va2jlscz9D71hFdd2.json'),
+    await http.patch(Uri.parse('$_url'),
         body: jsonEncode({
           'monsterHp': monsterHp,
           'monsterDmg': monsterDmg,
           'monsterEndu': monsterEndu,
           'monsterImagem': monsterImagem,
         }));
+  }
+
+  void generateMonster() {
+    monsterHp = Random().nextInt(200);
+    monsterEndu = Random().nextInt(20);
+    monsterDmg = Random().nextInt(50);
+    monsterImagem = monstros.elementAt(Random().nextInt(11));
+    for (var i = 50; i > monsterHp;) {
+      monsterHp = Random().nextInt(200);
+    }
+    setMonster();
   }
 
   /*final monstros = List monstroEncouter; = [

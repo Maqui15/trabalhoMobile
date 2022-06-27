@@ -11,13 +11,31 @@ class EscolhaDeClasse extends StatefulWidget {
 }
 
 class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
+  Future<void> alerta() async {
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Alerta!'),
+            content: const Text('Nickname não pode ser vazio.'),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('OK')),
+            ],
+          );
+        });
+  }
+
   Atributos att = Atributos();
   final nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.black,
+        color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,11 +57,16 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                   ),
                   onPressed: () {
                     String nome = nameController.text;
-                    att.classeGuerreiro(nome);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Batalha1()));
+                    if (nameController.text != '') {
+                      att.classeGuerreiro(nome);
+                      att.setAtts();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Batalha1()));
+                    } else {
+                      alerta();
+                    }
                   },
                   child: const Text(
                     'Guerreiro',
@@ -65,11 +88,16 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                   ),
                   onPressed: () {
                     String nome = nameController.text;
-                    att.classeMago(nome);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Batalha1()));
+                    if (nameController.text != '') {
+                      att.classeMago(nome);
+                      att.setAtts();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Batalha1()));
+                    } else {
+                      alerta();
+                    }
                   },
                   child: const Text(
                     'Mago',
@@ -91,11 +119,16 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                   ),
                   onPressed: () {
                     String nome = nameController.text;
-                    att.classeRogue(nome);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Batalha1()));
+                    if (nameController.text != '') {
+                      att.classeRogue(nome);
+                      att.setAtts();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Batalha1()));
+                    } else {
+                      alerta();
+                    }
                   },
                   child: const Text(
                     'Rogue',
