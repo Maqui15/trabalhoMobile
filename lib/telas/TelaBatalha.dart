@@ -1,7 +1,5 @@
 // ignore_for_file: file_names, avoid_print
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:jogo_mobile/Atributos.dart';
 import 'package:jogo_mobile/HeroBatalha.dart';
@@ -96,15 +94,13 @@ class _Batalha1State extends State<Batalha1> {
           return AlertDialog(
             title: const Text('Vitória!'),
             content: Text(
-                'Seguir para a proxima sala \n O que deseja recuperar ' +
-                    nome +
-                    '?'),
+                'Seguir para a proxima sala \n O que deseja recuperar $nome?'),
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(right: 20),
+                    margin: const EdgeInsets.only(right: 20),
                     child: TextButton(
                         onPressed: () {
                           att.getAtts();
@@ -128,14 +124,15 @@ class _Batalha1State extends State<Batalha1> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Telaescolha()));
+                                      builder: (context) =>
+                                          const Telaescolha()));
                             }
                           }
                         },
                         child: const Text('HP')),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 20),
+                    margin: const EdgeInsets.only(left: 20),
                     child: TextButton(
                         onPressed: () {
                           att.getAtts();

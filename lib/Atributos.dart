@@ -44,7 +44,7 @@ class Atributos {
   }
 
   Future<void> setAtts() async {
-    await http.patch(Uri.parse('$_url'),
+    await http.patch(Uri.parse(_url),
         body: jsonEncode({
           'nome': nome,
           'hp': hp,
@@ -65,7 +65,7 @@ class Atributos {
   }
 
   Future<void> setHero() async {
-    await http.patch(Uri.parse('$_url'),
+    await http.patch(Uri.parse(_url),
         body: jsonEncode({
           'hp': hp,
           'mana': mana,
@@ -78,7 +78,7 @@ class Atributos {
   }
 
   Future<void> getAtts() async {
-    final response = await http.get(Uri.parse('$_url'));
+    final response = await http.get(Uri.parse(_url));
     Map<String, dynamic> data = jsonDecode(response.body);
     nome = data['nome'];
     hp = data['hp'];
@@ -147,7 +147,7 @@ class Atributos {
   }
 
   Future<void> setMonster() async {
-    await http.patch(Uri.parse('$_url'),
+    await http.patch(Uri.parse(_url),
         body: jsonEncode({
           'monsterHp': monsterHp,
           'monsterDmg': monsterDmg,
@@ -157,8 +157,7 @@ class Atributos {
   }
 
   Future<void> setCount() async {
-    await http.patch(Uri.parse('$_url'),
-        body: jsonEncode({'contador': contador}));
+    await http.patch(Uri.parse(_url), body: jsonEncode({'contador': contador}));
   }
 
   void generateMonster() {

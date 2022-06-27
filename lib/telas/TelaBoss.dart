@@ -94,13 +94,13 @@ class _TelaBossState extends State<TelaBoss> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text('Vitória!'),
-            content: Text('Acabou o joguinho ' + nome + '?'),
+            content: Text('Acabou o joguinho $nome?'),
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(right: 20),
+                    margin: const EdgeInsets.only(right: 20),
                     child: TextButton(
                         onPressed: () {
                           Navigator.push(
