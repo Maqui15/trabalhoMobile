@@ -23,7 +23,7 @@ class _Batalha1State extends State<Batalha1> {
   num? hP;
   num? mana;
   String nome = '';
-  var duration = const Duration(seconds: 1);
+  String hero = '';
 
   @override
   void initState() {
@@ -38,19 +38,19 @@ class _Batalha1State extends State<Batalha1> {
 
   Widget char() {
     return Container(
-        margin: const EdgeInsets.only(top: 120),
-        height: 210,
-        width: 170,
+        margin: const EdgeInsets.only(top: 220),
+        height: 200,
+        width: 150,
         child: AnimatedPadding(
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOutExpo,
           padding: const EdgeInsets.only(left: 0),
           child: Row(
             children: [
-              Image.asset(
-                "lib/images/boy.gif",
+              Image.network(
+                att.heroImagem,
                 width: 150,
-                height: 210,
+                height: 200,
               )
             ],
           ),
@@ -59,7 +59,7 @@ class _Batalha1State extends State<Batalha1> {
 
   Widget monsterChar() {
     return Container(
-        margin: const EdgeInsets.only(top: 100),
+        margin: const EdgeInsets.only(top: 200),
         height: 230,
         width: 200,
         child: AnimatedPadding(
@@ -181,14 +181,14 @@ class _Batalha1State extends State<Batalha1> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [Text('HP: $monsterHP')]),
               ),
-              Container(
+              /*Container(
                 height: 100,
                 width: double.infinity,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [],
                 ),
-              ),
+              ),*/
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -267,14 +267,16 @@ class _Batalha1State extends State<Batalha1> {
                     ),
                     child: const Text('Skill 2'),
                     onPressed: () {
-                      b.batalhar(2);
-                      ataque();
-                      if (att.monsterHp <= 0) {
-                        alertaWin();
-                      } else {
-                        b.monsterATK();
-                        if (att.hp <= 0) {
-                          alertaLose();
+                      if (att.mana > 0) {
+                        b.batalhar(2);
+                        ataque();
+                        if (att.monsterHp <= 0) {
+                          alertaWin();
+                        } else {
+                          b.monsterATK();
+                          if (att.hp <= 0) {
+                            alertaLose();
+                          }
                         }
                       }
                     },
@@ -293,14 +295,16 @@ class _Batalha1State extends State<Batalha1> {
                     ),
                     child: const Text('Skill 3'),
                     onPressed: () {
-                      b.batalhar(3);
-                      ataque();
-                      if (att.monsterHp <= 0) {
-                        alertaWin();
-                      } else {
-                        b.monsterATK();
-                        if (att.hp <= 0) {
-                          alertaLose();
+                      if (att.mana > 0) {
+                        b.batalhar(3);
+                        ataque();
+                        if (att.monsterHp <= 0) {
+                          alertaWin();
+                        } else {
+                          b.monsterATK();
+                          if (att.hp <= 0) {
+                            alertaLose();
+                          }
                         }
                       }
                     },

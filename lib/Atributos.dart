@@ -54,7 +54,7 @@ class Atributos {
           'endu': endu,
           'level': level,
           'classeEscolhida': classeEscolhida,
-          'HeroImagem': heroImagem,
+          'heroImagem': heroImagem,
           'monsterHp': monsterHp,
           'monsterDmg': monsterDmg,
           'monsterEndu': monsterEndu,
@@ -135,7 +135,8 @@ class Atributos {
     hp = 100;
     mana = 100;
     classeEscolhida = classes.elementAt(2);
-    heroImagem = '';
+    heroImagem =
+        'https://drive.google.com/uc?export=view&id=10eXeHcbLj3JPBGncVW4TfaYDmx4nWL56';
     await setAtts();
   }
 
