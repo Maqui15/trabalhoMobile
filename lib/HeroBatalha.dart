@@ -53,9 +53,9 @@ class HeroBatalha {
       null;
     }
     att.setHero();
-    att.setMonster();
+    //att.setMonster();
     att.setStatistics();
-    att.getAtts();
+    //att.getAtts();
   }
 
   void monsterATK() {
@@ -65,7 +65,7 @@ class HeroBatalha {
       //-att.endu;
       att.dano = att.monsterDmg;
       // -att.endu;
-      att.setAtts();
+      att.setMonster();
       att.setStatistics();
     } else {
       null;

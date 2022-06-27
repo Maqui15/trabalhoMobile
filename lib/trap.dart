@@ -71,7 +71,7 @@ class Trap {
         } else {
           if (result < 15 && result >= 6) {
             att.endu = 0;
-            texto = 'Deu merda!';
+            texto = 'Deu merda!\n Você foi amaldiçoado, sua defesa foi para 0';
           } else {
             att.hp = 0;
             texto = 'Você teve uma morte horrivel!';

@@ -260,7 +260,7 @@ class _Batalha1State extends State<Batalha1> {
                         Container(
                           //margin: EdgeInsets.only(left: 10),
                           child: Text(
-                            '$danoH<- Dano Recebido',
+                            '$danoH <- Dano Recebido',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
