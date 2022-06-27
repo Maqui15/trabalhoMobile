@@ -14,6 +14,8 @@ class Atributos {
   num dex = 0;
   num endu = 0;
   num level = 1;
+  num? dano;
+  int? dadin;
   String classeEscolhida = '';
   String heroImagem = '';
   num monsterHp = 0;
@@ -60,7 +62,9 @@ class Atributos {
           'monsterDmg': monsterDmg,
           'monsterEndu': monsterEndu,
           'monsterImagem': monsterImagem,
-          'contador': contador
+          'contador': contador,
+          'dano': dano,
+          'dadin': dadin
         }));
   }
 
@@ -94,6 +98,8 @@ class Atributos {
     monsterDmg = data['monsterDmg'];
     monsterEndu = data['monsterEndu'];
     contador = data['contador'];
+    dano = data['dano'];
+    dadin = data['dadin'];
   }
 
   void classeGuerreiro(String name) async {
@@ -160,10 +166,18 @@ class Atributos {
     await http.patch(Uri.parse(_url), body: jsonEncode({'contador': contador}));
   }
 
+  Future<void> setStatistics() async {
+    await http.patch(Uri.parse(_url),
+        body: jsonEncode({'dano': dano, 'dadin': dadin}));
+  }
+
   void generateMonster() {
-    monsterHp = Random().nextInt(200);
-    monsterEndu = Random().nextInt(20);
-    monsterDmg = Random().nextInt(50);
+    monsterHp = 100;
+    // Random().nextInt(200);
+    monsterEndu = 10;
+    //Random().nextInt(5);
+    monsterDmg = 10;
+    //Random().nextInt(5);
     monsterImagem = monstros.elementAt(Random().nextInt(11));
     for (var i = 50; i > monsterHp;) {
       monsterHp = Random().nextInt(200);
