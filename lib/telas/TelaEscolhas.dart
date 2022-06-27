@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:jogo_mobile/Atributos.dart';
 import 'package:jogo_mobile/dados.dart';
+import 'package:jogo_mobile/telas/Inicial.dart';
 
 import '../trap.dart';
 import 'TelaBatalha.dart';
@@ -27,7 +28,7 @@ class _TelaescolhaState extends State<Telaescolha> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('Vitória!'),
+            title: const Text('Resultado!'),
             content: Text(texto),
             actions: [
               Row(
@@ -42,16 +43,25 @@ class _TelaescolhaState extends State<Telaescolha> {
                             att.setHero();
                             att.contador += 1;
                             att.setCount();
-                            if (att.contador >= 9) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const TelaBoss()));
+                            if (att.hp > 0) {
+                              if (att.contador >= 9) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const TelaBoss()));
+                              } else {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Batalha1()));
+                              }
                             } else {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const Batalha1()));
+                                      builder: (context) => const Inicial()));
                             }
                           },
                           child: const Text('OK'))),
@@ -81,7 +91,12 @@ class _TelaescolhaState extends State<Telaescolha> {
             color: Colors.black,
             padding: const EdgeInsets.all(20),
             child: Column(
-              children: [Text(trap.textoRPG())],
+              children: [
+                Text(
+                  trap.textoRPG(),
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
             ),
           ),
           Container(

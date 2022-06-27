@@ -23,6 +23,8 @@ class _Batalha1State extends State<Batalha1> {
   num? monsterHP;
   num? hP;
   num? mana;
+  int? dadinH = 0, dadinM = 0;
+  num? danoH = 0, danoM = 0;
   String nome = '';
 
   @override
@@ -38,7 +40,7 @@ class _Batalha1State extends State<Batalha1> {
 
   Widget char() {
     return Container(
-        margin: const EdgeInsets.only(top: 220),
+        margin: const EdgeInsets.only(top: 120),
         height: 200,
         width: 150,
         child: AnimatedPadding(
@@ -59,7 +61,7 @@ class _Batalha1State extends State<Batalha1> {
 
   Widget monsterChar() {
     return Container(
-        margin: const EdgeInsets.only(top: 200),
+        margin: const EdgeInsets.only(top: 100),
         height: 230,
         width: 200,
         child: AnimatedPadding(
@@ -84,6 +86,16 @@ class _Batalha1State extends State<Batalha1> {
       monsterHP = att.monsterHp;
       hP = att.hp;
       mana = att.mana;
+      dadinH = att.dadin;
+      danoH = att.dano;
+    });
+  }
+
+  void ataqueM() {
+    setState(() {
+      att.getAtts();
+      dadinH = att.dadin;
+      danoH = att.dano;
     });
   }
 
@@ -197,14 +209,70 @@ class _Batalha1State extends State<Batalha1> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [Text('HP: $monsterHP')]),
               ),
-              /*Container(
+              Container(
                 height: 100,
                 width: double.infinity,
+                padding: EdgeInsets.all(10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [],
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(
+                              left: 10, top: 30, right: 100, bottom: 10),
+                          child: Text(
+                            'Dado -> $dadinH',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(right: 20),
+                          child: Text(
+                            'Dano Recebido -> $danoM',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(
+                              right: 10, top: 30, left: 50, bottom: 10),
+                          child: Text(
+                            '$dadinM <- Dado',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          //margin: EdgeInsets.only(left: 10),
+                          child: Text(
+                            '$danoH<- Dano Recebido',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              ),*/
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -258,10 +326,13 @@ class _Batalha1State extends State<Batalha1> {
                     onPressed: () {
                       b.batalhar(1);
                       ataque();
+                      dadinH = att.dadin;
+                      danoH = att.dano;
                       if (att.monsterHp <= 0) {
                         alertaWin();
                       } else {
                         b.monsterATK();
+                        ataqueM();
                         if (att.hp <= 0) {
                           alertaLose();
                         }

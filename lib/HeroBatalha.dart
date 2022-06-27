@@ -24,6 +24,8 @@ class HeroBatalha {
     } else if (dadoAtaque < dadoDefesa) {
       result = false;
     }
+    att.dadin = dadoAtaque;
+    att.setStatistics();
     return result;
   }
 
@@ -43,20 +45,28 @@ class HeroBatalha {
         null;
     }
     if (confronto()) {
-      att.monsterHp -= dmgH - att.monsterEndu;
+      att.monsterHp -= dmgH;
+      // -att.monsterEndu;
+      att.dano = dmgH;
+      // -att.monsterEndu;
     } else {
       null;
     }
     att.setHero();
     att.setMonster();
+    att.setStatistics();
     att.getAtts();
   }
 
   void monsterATK() {
     skilsMonster(Random().nextInt(1));
     if (confronto()) {
-      att.hp -= att.monsterDmg - att.endu;
+      att.hp -= att.monsterDmg;
+      //-att.endu;
+      att.dano = att.monsterDmg;
+      // -att.endu;
       att.setAtts();
+      att.setStatistics();
     } else {
       null;
     }
@@ -125,10 +135,10 @@ class HeroBatalha {
 
   num skilsMonster(var skill) {
     if (skill == 0) {
-      att.monsterDmg += 30;
+      att.monsterDmg += 3;
     }
     if (skill == 1) {
-      att.monsterDmg += 50;
+      att.monsterDmg += 5;
     }
     return att.monsterDmg;
   }

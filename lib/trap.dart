@@ -8,10 +8,10 @@ class Trap {
   Trap();
 
   List texto = [
-    'Você vê um artefato ao lado de uma poça com agua muito brilhante\n Opção 1: Igonorar e passar direto\n Opção 2: Apenas beber da água\n Opção 3: Pegar o artefáto, mas é arriscado',
-    'Você vê uma runa com uma aura muito poderosa na parede da caverna\n Opção 1: Igonorar e passar direto\n Opção 2: Tocar na runa\n Opção 3: Absorver o poder da runa, mas é arriscado',
-    'Você vê uma pequena criatura humanoide que parece um clerigo limpando uma gema que emana uma estranha aura\n Opção 1: Igonorar e passar direto\n Opção 2: Se aproximar para tentar se comunicar\n Opção 3: Roubar a gema, mas é arriscado',
-    'Você vê a estatua de uma deusa segurando artefato em forma de cruz, mas sente que esta sendo observado\n Opção 1: Igonorar e passar direto\n Opção 2: Se ajoelhar e rezar\n Opção 3: Tentar pegar o artefato, mas é arriscado',
+    'Você vê um artefato ao lado de uma poça com agua muito brilhante\n \n \n \n Opção 1: Igonorar e passar direto\n \n Opção 2: Apenas beber da água\n \n Opção 3: Pegar o artefáto, mas é arriscado',
+    'Você vê uma runa com uma aura muito poderosa na parede da caverna\n \n \n \n Opção 1: Igonorar e passar direto\n \n Opção 2: Tocar na runa\n \n Opção 3: Absorver o poder da runa, mas é arriscado',
+    'Você vê uma pequena criatura humanoide que parece um clerigo limpando uma gema que emana uma estranha aura\n \n \n \n Opção 1: Igonorar e passar direto\n \n Opção 2: Se aproximar para tentar se comunicar\n \n Opção 3: Roubar a gema, mas é arriscado',
+    'Você vê a estatua de uma deusa segurando artefato em forma de cruz, mas sente que esta sendo observado\n \n \n \n Opção 1: Igonorar e passar direto\n \n Opção 2: Se ajoelhar e rezar\n \n Opção 3: Tentar pegar o artefato, mas é arriscado',
   ];
 
   String textoRPG() {
