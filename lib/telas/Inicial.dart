@@ -10,7 +10,7 @@ class Inicial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: 705,
+        height: 900,
         width: double.infinity,
         padding: const EdgeInsets.all(30),
         decoration: const BoxDecoration(

@@ -2,13 +2,12 @@
 import 'dart:math';
 import 'package:jogo_mobile/Atributos.dart';
 import 'package:jogo_mobile/dados.dart';
-import 'package:jogo_mobile/telas/TelaVitoria.dart';
+import 'package:jogo_mobile/telas/TelaBoss.dart';
 
 class HeroBatalha {
   Dados dado = Dados();
   HeroBatalha();
   Atributos att = Atributos();
-  TelaVitoria tv = const TelaVitoria();
 
   bool confronto() {
     Dados dado = Dados();

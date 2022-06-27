@@ -1,36 +1,35 @@
-// ignore_for_file: file_names, avoid_print
-
-import 'dart:io';
+// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:jogo_mobile/Atributos.dart';
-import 'package:jogo_mobile/HeroBatalha.dart';
-import 'package:jogo_mobile/dados.dart';
-import 'package:jogo_mobile/telas/Inicial.dart';
-import 'package:jogo_mobile/telas/TelaEscolhas.dart';
 
-import 'TelaBoss.dart';
+import '../Atributos.dart';
+import '../HeroBatalha.dart';
+import 'Inicial.dart';
 
-class Batalha1 extends StatefulWidget {
-  const Batalha1({Key? key}) : super(key: key);
+class TelaBoss extends StatefulWidget {
+  const TelaBoss({Key? key}) : super(key: key);
 
   @override
-  State<Batalha1> createState() => _Batalha1State();
+  State<TelaBoss> createState() => _TelaBossState();
 }
 
-class _Batalha1State extends State<Batalha1> {
+class _TelaBossState extends State<TelaBoss> {
   HeroBatalha b = HeroBatalha();
+
   Atributos att = Atributos();
-  Dados dado = Dados();
+
   num? monsterHP;
+
   num? hP;
+
   num? mana;
+
   String nome = '';
 
   @override
   void initState() {
     super.initState();
-    att.generateMonster();
+    att.generateBoss();
     att.getAtts();
     monsterHP = att.monsterHp;
     hP = att.hp;
@@ -95,10 +94,7 @@ class _Batalha1State extends State<Batalha1> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text('Vitória!'),
-            content: Text(
-                'Seguir para a proxima sala \n O que deseja recuperar ' +
-                    nome +
-                    '?'),
+            content: Text('Acabou o joguinho ' + nome + '?'),
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -107,46 +103,12 @@ class _Batalha1State extends State<Batalha1> {
                     margin: EdgeInsets.only(right: 20),
                     child: TextButton(
                         onPressed: () {
-                          att.getAtts();
-                          att.hp = 100;
-                          att.setHero();
-                          att.contador += 1;
-                          att.setCount();
-                          int i = dado.rowD20();
-                          if (att.contador >= 9) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const TelaBoss()));
-                          } else {
-                            if (i > 5) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Batalha1()));
-                            } else {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Telaescolha()));
-                            }
-                          }
-                        },
-                        child: const Text('HP')),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 20),
-                    child: TextButton(
-                        onPressed: () {
-                          att.getAtts();
-                          att.mana = 100;
-                          att.setHero();
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Batalha1()));
+                                  builder: (context) => const Inicial()));
                         },
-                        child: const Text('Mana')),
+                        child: const Text('OK')),
                   ),
                 ],
               ),
