@@ -67,6 +67,8 @@ flutter:
     - lib/images/menu.jpeg
     - lib/images/crianca_bicicleta.gif
     - lib/images/mago.png
+    - lib/images/caverna_marcada.jpeg
+    - lib/images/tela.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

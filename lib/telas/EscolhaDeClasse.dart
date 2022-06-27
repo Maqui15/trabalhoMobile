@@ -35,15 +35,21 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("lib/images/tela.jpg"), fit: BoxFit.cover)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            TextField(
-              controller: nameController,
-              decoration: const InputDecoration(labelText: 'Nickname'),
-              //style: Style,
+            Container(
+              color: Color.fromARGB(157, 255, 255, 255),
+              margin: EdgeInsets.all(30),
+              child: TextField(
+                controller: nameController,
+                decoration: const InputDecoration(labelText: 'Nome: '),
+                //style: Style,
+              ),
             ),
             Container(
               width: 300,
@@ -53,7 +59,7 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                     padding: const EdgeInsets.all(16.0),
                     primary: Colors.black,
                     textStyle: const TextStyle(fontSize: 22),
-                    backgroundColor: const Color.fromARGB(120, 158, 158, 158),
+                    backgroundColor: Color.fromARGB(255, 158, 158, 158),
                   ),
                   onPressed: () {
                     String nome = nameController.text;
@@ -84,7 +90,7 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                     padding: const EdgeInsets.all(16.0),
                     primary: Colors.black,
                     textStyle: const TextStyle(fontSize: 22),
-                    backgroundColor: const Color.fromARGB(120, 158, 158, 158),
+                    backgroundColor: Color.fromARGB(255, 158, 158, 158),
                   ),
                   onPressed: () {
                     String nome = nameController.text;
@@ -115,7 +121,7 @@ class _EscolhaDeClasseState extends State<EscolhaDeClasse> {
                     padding: const EdgeInsets.all(16.0),
                     primary: Colors.black,
                     textStyle: const TextStyle(fontSize: 22),
-                    backgroundColor: const Color.fromARGB(120, 158, 158, 158),
+                    backgroundColor: Color.fromARGB(255, 158, 158, 158),
                   ),
                   onPressed: () {
                     String nome = nameController.text;

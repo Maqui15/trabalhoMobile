@@ -1,11 +1,11 @@
 // ignore_for_file: file_names, unused_import
 
 import 'package:flutter/material.dart';
-import 'package:jogo_mobile/telas/Quartatela.dart';
+import 'package:jogo_mobile/telas/EscolhaDeClasse.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-class TerceiraTela extends StatelessWidget {
-  const TerceiraTela({Key? key}) : super(key: key);
+class QuartaTela extends StatelessWidget {
+  const QuartaTela({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +36,14 @@ class TerceiraTela extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const QuartaTela()),
+                                  builder: (context) =>
+                                      const EscolhaDeClasse()),
                             );
                           },
                           child: (AnimatedTextKit(
                             animatedTexts: [
                               TypewriterAnimatedText(
-                                'pegaram suas bicicletas e foram ao local marcado, para juntos irem para a caverna onde iriam realizar o final de semana perfeito. Está caverna iria dar o ambiente perfeito!',
+                                'chegando na caverna os amigos foram entrando o mais fundo que conseuriram, para assim ter o ambiente perfeito para o jogo que planejaram. Ficando assim resolvido o qual o papel de cada um no jogo!',
                                 textStyle: const TextStyle(
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.bold,
@@ -56,18 +57,15 @@ class TerceiraTela extends StatelessWidget {
                             displayFullTextOnTap: true,
                             stopPauseOnTap: true,
                           )))),
-                  Container(
-                    margin: EdgeInsets.all(30),
-                    child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const QuartaTela()),
-                          );
-                        },
-                        child: Text('Proximo')),
-                  )
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EscolhaDeClasse()),
+                        );
+                      },
+                      child: Text('Proximo')),
                 ],
               ),
             ),
